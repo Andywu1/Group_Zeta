@@ -51,6 +51,8 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
         AssignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
         submitWorkEvaluationJButton = new javax.swing.JButton();
+        submitVolunteerJButton = new javax.swing.JButton();
+        volunteerEvalJButton = new javax.swing.JButton();
 
         valueLabel.setText("<value>");
 
@@ -85,6 +87,20 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        submitVolunteerJButton.setText("Submit Volunteer Request");
+        submitVolunteerJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitVolunteerJButtonActionPerformed(evt);
+            }
+        });
+
+        volunteerEvalJButton.setText("Submit Volunteer Evaluation");
+        volunteerEvalJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volunteerEvalJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,7 +120,9 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(processJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AssignJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(submitWorkEvaluationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(submitWorkEvaluationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(volunteerEvalJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(submitVolunteerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -122,7 +140,11 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(processJButton)
                 .addGap(18, 18, 18)
                 .addComponent(submitWorkEvaluationJButton)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(submitVolunteerJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(volunteerEvalJButton)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,13 +181,31 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_submitWorkEvaluationJButtonActionPerformed
 
+    private void submitVolunteerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitVolunteerJButtonActionPerformed
+        // TODO add your handling code here:
+        SubmitVolunteerJPanel submitVolunteerPanel=new SubmitVolunteerJPanel(userProcessContainer,userAccount,hospitalEnterprise,myNetwork);
+        userProcessContainer.add("SubmitVolunteerPanel",submitVolunteerPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_submitVolunteerJButtonActionPerformed
+
+    private void volunteerEvalJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volunteerEvalJButtonActionPerformed
+        // TODO add your handling code here:
+        SubmitVolunteerEvalJPanel submitVolunteerEvalPanel=new SubmitVolunteerEvalJPanel(userProcessContainer,userAccount,hospitalEnterprise);
+        userProcessContainer.add("SubmitVolunteerEvalPanel",submitVolunteerEvalPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_volunteerEvalJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignJButton;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton processJButton;
+    private javax.swing.JButton submitVolunteerJButton;
     private javax.swing.JButton submitWorkEvaluationJButton;
     private javax.swing.JLabel valueLabel;
+    private javax.swing.JButton volunteerEvalJButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,10 +6,12 @@
 package Business.Role;
 
 import Business.Ecosystem.EcoSystem;
+import Business.Enterprise.CharityEnterprise;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Interface.Charity.DonationWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -20,7 +22,7 @@ public class FundraiserRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network mynetWork, EcoSystem system) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DonationWorkAreaJPanel(userProcessContainer,account,(CharityEnterprise)enterprise); //To change body of generated methods, choose Tools | Templates.
     }
     public FundraiserRole(){
         this.roleType=this.roleType.Fundraiser;

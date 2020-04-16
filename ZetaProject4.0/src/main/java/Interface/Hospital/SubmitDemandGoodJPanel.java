@@ -140,8 +140,8 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
                         .addComponent(backJButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,8 +149,8 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
                 .addGap(7, 7, 7)
                 .addComponent(backJButton)
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(goodnameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,6 +175,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
         // TODO add your handling code here:
         String name=goodnameJTextField.getText();
+        System.out.println(name);
         String quantity=String.valueOf(quantityJTextField.getText());
         
         for(Map.Entry<String, DemandGood> entry : workrequest.getDemandGoodDirectory().getDemandGoodMap().entrySet()){
@@ -202,7 +203,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             quantityJTextField.setText("");
             return;
         }
-        
+       
         DemandGood dg=new DemandGood(name, q);
         dg.setName(name);
         dg.setValue(q);
@@ -226,9 +227,6 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
 //        }
 //        
         populateTable();
-        goodnameJTextField.setText("");
-        quantityJTextField.setText("");
-        JOptionPane.showMessageDialog(null, "Submit Successfully!");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

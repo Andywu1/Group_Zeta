@@ -45,6 +45,11 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)assignJTable.getModel();
         model.setRowCount(0);
         for(WorkRequest request:charity.getWorkQueue().getWorkRequestList()){
+            if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }else if(request.getClass().getName().contains("DonorWorkRequest")){
+                continue;
+            }
             if(!request.getStatus().equals("Create") &&!request.getStatus().equals("Pending")){
                 Object[]row=new Object[6];
                 row[0]=request.getRequestId();
@@ -67,10 +72,12 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
     public void populateFirstProcessTable(){
         DefaultTableModel model = (DefaultTableModel)firstWorkRequestJTable.getModel();
         model.setRowCount(0);
+        
         WorkRequest first=charity.getWorkQueue().getWorkRequestList().get(0);
         Date begin=charity.getWorkQueue().getWorkRequestList().get(0).getRequestDate();
         
         for(WorkRequest request:charity.getWorkQueue().getWorkRequestList()){
+            
             if(request.getReceiver()!=null){
                 continue;
             }
@@ -259,6 +266,12 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
          Integer wrSelectedRow=(Integer)firstWorkRequestJTable.getValueAt(selectedRow, 0);
           HospitalWorkRequest hrequest=null;
          for(WorkRequest request:charity.getWorkQueue().getWorkRequestList()){
+             if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }
+             if(request.getClass().getName().contains("DonorWorkRequest")){
+                continue;
+            }
             HospitalWorkRequest newrequest=(HospitalWorkRequest)request;
             if(wrSelectedRow.equals(newrequest.getRequestId())){
                 hrequest=newrequest;

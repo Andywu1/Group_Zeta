@@ -57,12 +57,13 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         networkJTable = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         createJButton = new javax.swing.JButton();
         deleteJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         updateJButton = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(151, 203, 237));
 
         jLabel1.setText("Manage Network");
 
@@ -83,7 +84,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(networkJTable);
 
-        jLabel2.setText("Name");
+        nameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Microsoft Tai Le", 1, 14))); // NOI18N
 
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -120,47 +121,37 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addComponent(createJButton)))
-                                .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(deleteJButton)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(updateJButton))
-                                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(backJButton)))
-                .addContainerGap(141, Short.MAX_VALUE))
+                        .addComponent(backJButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(createJButton)
+                                .addGap(57, 57, 57)
+                                .addComponent(deleteJButton)
+                                .addGap(61, 61, 61)
+                                .addComponent(updateJButton))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(33, 33, 33)
+                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createJButton)
                     .addComponent(deleteJButton)
                     .addComponent(updateJButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(backJButton)
                 .addGap(42, 42, 42))
         );
@@ -268,7 +259,6 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     private javax.swing.JButton createJButton;
     private javax.swing.JButton deleteJButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTable networkJTable;

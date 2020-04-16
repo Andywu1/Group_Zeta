@@ -70,8 +70,5 @@ public class UserAccount {
 
     public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
-    }
-    
-    
-    
+    }   
 }

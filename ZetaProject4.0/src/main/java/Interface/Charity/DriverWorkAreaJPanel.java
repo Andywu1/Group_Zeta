@@ -153,6 +153,17 @@ public class DriverWorkAreaJPanel extends javax.swing.JPanel {
         }
         
         HospitalWorkRequest hospitalWorkRequest=(HospitalWorkRequest)driverJTable.getValueAt(selectedRow, 3);
+        
+        if(hospitalWorkRequest.getDriver()==null){
+            JOptionPane.showMessageDialog(this, "You haven't assigned driver!", "INFORMATION", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(hospitalWorkRequest.getResult()!=null){
+            JOptionPane.showMessageDialog(this, "You can't submit result twice!", "INFORMATION", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         hospitalWorkRequest.setStatus("Delivery");
         
         DriverProcessJPanel driverProcessJPanel=new DriverProcessJPanel(userProcessContainer,hospitalWorkRequest);

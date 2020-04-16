@@ -17,12 +17,9 @@ public class CharityEnterprise extends Enterprise{
     public CharityEnterprise(String name) {
         super(name, EnterpriseType.Charity);
     }
-    
-    
+       
 //    @Override
 //    public ArrayList<Role> getSupportedRole() {
 //        return null;
 //    }
-
-
 }

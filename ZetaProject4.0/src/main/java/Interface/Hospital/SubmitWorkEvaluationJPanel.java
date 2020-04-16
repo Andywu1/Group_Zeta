@@ -40,6 +40,9 @@ public class SubmitWorkEvaluationJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
+            if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }
             HospitalWorkRequest hrequest=(HospitalWorkRequest)request;
             Object[] row=new Object[5];
             row[0]=hrequest.getRequestId();
@@ -93,7 +96,7 @@ public class SubmitWorkEvaluationJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(submitEvaluationJTable);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Evaluation");
+        jLabel2.setText("Evaluation:");
 
         evaluationJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,15 +127,15 @@ public class SubmitWorkEvaluationJPanel extends javax.swing.JPanel {
                                 .addComponent(backJButton)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 193, Short.MAX_VALUE)
+                        .addGap(0, 14, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(evaluationJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addGap(97, 97, 97))
             .addGroup(layout.createSequentialGroup()
                 .addGap(153, 153, 153)
                 .addComponent(submitJButton)
@@ -175,6 +178,9 @@ public class SubmitWorkEvaluationJPanel extends javax.swing.JPanel {
         HospitalWorkRequest hrequest=null;
         
         for(WorkRequest request:hospital.getWorkQueue().getWorkRequestList()){
+            if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }
             HospitalWorkRequest newrequest=(HospitalWorkRequest)request;
             if(wrSelectedRow.equals(newrequest.getRequestId())){
                 hrequest=newrequest;
@@ -202,7 +208,6 @@ public class SubmitWorkEvaluationJPanel extends javax.swing.JPanel {
         
          hrequest.setEvaluation(evaluation);
          populateTable();
-         evaluationJTextField.setText("");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

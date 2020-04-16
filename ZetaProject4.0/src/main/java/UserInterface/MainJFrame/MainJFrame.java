@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import Interface.SysAdminWorkArea.RegisterSysadminJPanel;
 import Business.Role.CharityAdministratorRole;
 import Interface.SysAdminWorkArea.RegisterSysadminJPanel;
+import java.awt.Dimension;
 
 /**
  *
@@ -37,9 +38,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system=dB4OUtil.retrieveSystem();
-        this.setSize(1500, 850);
-        
-    }
+         this.setSize(1200, 700);    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,6 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
+        rightJPanel = new javax.swing.JPanel();
         leftJPanel = new javax.swing.JPanel();
         userNameJTextField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
@@ -58,13 +58,14 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton = new javax.swing.JButton();
         registerJButton = new javax.swing.JButton();
         showPasswordCheckBox = new javax.swing.JCheckBox();
-        rightJPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        rightJPanel.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(rightJPanel);
+
         leftJPanel.setBackground(new java.awt.Color(255, 255, 255));
-        leftJPanel.setPreferredSize(new java.awt.Dimension(200, 850));
+        leftJPanel.setPreferredSize(new java.awt.Dimension(300, 850));
         leftJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userNameJTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
@@ -73,7 +74,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 userNameJTextFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 140, -1));
+        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, 70));
 
         passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
         passwordField.setPreferredSize(new java.awt.Dimension(15, 40));
@@ -82,7 +83,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 passwordFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 140, 50));
+        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, 60));
 
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +91,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 loginJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 107, 33));
+        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 80, 33));
 
         logoutJButton.setText("Logout");
         logoutJButton.setEnabled(false);
@@ -122,30 +123,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(leftJPanel);
 
-        rightJPanel.setLayout(new java.awt.CardLayout());
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\MainFrame2.png")); // NOI18N
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        rightJPanel.add(jLabel1, "card2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1136, Short.MAX_VALUE)
-                .addComponent(rightJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(519, 519, 519))
+                .addContainerGap()
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(rightJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
         );
 
         pack();
@@ -195,23 +184,23 @@ public class MainJFrame extends javax.swing.JFrame {
 
         //Step1: Check in the system admin user account directory if you have the user
         UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
-        
+
         Network myNetwork=null;
         Enterprise inEnterprise=null;
         Organization inOrganization=null;
-        
-            if (userAccount == null) {
-                for(Network network:system.getNetworkList()){
-                    //Step 2.a: check against each enterprise
-                    for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
-                        userAccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
-                           
+
+        if (userAccount == null) {
+            for(Network network:system.getNetworkList()){
+                //Step 2.a: check against each enterprise
+                for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
+                    userAccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+
                     if(userAccount!=null){
-                    inEnterprise=enterprise;
-                    myNetwork=network;
-                    break;
+                        inEnterprise=enterprise;
+                        myNetwork=network;
+                        break;
                     }
-    
+
                     for(Organization organization:enterprise.getOrganizationDirectory().getOrganizationList()){
                         userAccount=organization.getUserAccountDirectory().authenticateUser(userName, password);
 
@@ -224,15 +213,15 @@ public class MainJFrame extends javax.swing.JFrame {
                     }
 
                     if(inOrganization!=null){
-                    break;
+                        break;
                     }
 
                     if(inEnterprise!=null){
-                    break;
-                    }
+                        break;
                     }
                 }
-                
+            }
+
         }
 
         if(userAccount==null){
@@ -251,10 +240,9 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton.setEnabled(true);
         userNameJTextField.setEnabled(false);
         passwordField.setEnabled(false);
+        registerJButton.setEnabled(false);
 
         showPasswordCheckBox.setEnabled(false);
-        
-            
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
@@ -313,7 +301,6 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordField.setText("");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel leftJPanel;
     private javax.swing.JButton loginJButton;

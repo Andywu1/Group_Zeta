@@ -34,6 +34,8 @@
                           <Component id="processJButton" max="32767" attributes="0"/>
                           <Component id="AssignJButton" max="32767" attributes="0"/>
                           <Component id="submitWorkEvaluationJButton" max="32767" attributes="0"/>
+                          <Component id="volunteerEvalJButton" pref="0" max="32767" attributes="0"/>
+                          <Component id="submitVolunteerJButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -57,7 +59,11 @@
               <Component id="processJButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="submitWorkEvaluationJButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="64" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="submitVolunteerJButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="volunteerEvalJButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="94" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,6 +112,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitWorkEvaluationJButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="submitVolunteerJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Submit Volunteer Request"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitVolunteerJButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="volunteerEvalJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Submit Volunteer Evaluation"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="volunteerEvalJButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

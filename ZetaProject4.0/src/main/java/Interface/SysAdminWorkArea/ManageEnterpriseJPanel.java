@@ -86,6 +86,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         updateJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(166, 210, 239));
+
         backJButton.setText("< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

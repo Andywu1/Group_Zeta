@@ -26,7 +26,6 @@ public class DriverOrganization extends Organization{
        roles.add(new DriverRole());
        return roles;
     }
-    
     @Override
     public String toString(){
         return "Driver Organization";

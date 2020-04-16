@@ -110,6 +110,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         showpassword = new javax.swing.JLabel();
         UpdateJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(192, 233, 255));
+        setMinimumSize(new java.awt.Dimension(800, 671));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterpriseAdminJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -180,13 +182,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(usernameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                        .addComponent(showPasswordCheckBox, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(usernameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                    .addComponent(showPasswordCheckBox, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

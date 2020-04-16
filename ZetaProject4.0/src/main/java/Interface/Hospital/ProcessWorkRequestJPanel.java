@@ -51,12 +51,16 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
          System.out.println(useraccount);
          for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
              System.out.println("useraccount");
+             if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }
+             HospitalWorkRequest hrequest=(HospitalWorkRequest)request;
              Object[]row=new Object[5];
-             row[0]=request.getRequestId();
-             row[1]=request.getSender().getPerson().getName();
-             row[2]=request.getToEnterprise()==null?null:request.getToEnterprise().getName();
-             row[3]=request;
-             row[4]=request.getStatus();
+             row[0]=hrequest.getRequestId();
+             row[1]=hrequest.getSender().getPerson().getName();
+             row[2]=hrequest.getToEnterprise()==null?null:hrequest.getToEnterprise().getName();
+             row[3]=hrequest;
+             row[4]=hrequest.getStatus();
              
              model.addRow(row);
          }
@@ -66,10 +70,12 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         enterpriseJComboBox.removeAllItems();
         
         for(Enterprise enterprise:mynetwork.getEnterpriseDirectory().getEnterpriseList()){
-            if(enterprise.getName().equals(hospital.getName())){
-                continue;
+            System.out.println(enterprise.getEnterpriseType());
+            if(enterprise.getEnterpriseType().toString().equals("Charity")){
+                enterpriseJComboBox.addItem(enterprise.toString());
             }
-            enterpriseJComboBox.addItem(enterprise.toString());
+            
+            
         }
     }
     /**
@@ -143,14 +149,16 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(viewJButton)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(viewJButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGap(0, 0, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(submitJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                                         .addComponent(enterpriseJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGap(142, 142, 142))))
-                        .addContainerGap(164, Short.MAX_VALUE))))
+                        .addContainerGap(38, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +173,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(submitJButton)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -181,6 +189,9 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
          
          HospitalWorkRequest hrequest=null;
          for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
+             if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }
             HospitalWorkRequest newrequest=(HospitalWorkRequest)request;
             if(wrSelectedRow.equals(newrequest.getRequestId())){
                 hrequest=newrequest;
@@ -236,7 +247,6 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         
         //hospitalWorkRequest.setStatus("Hospital Send");
         populateTable();
-        JOptionPane.showMessageDialog(null, "Submit Successfully!");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
 

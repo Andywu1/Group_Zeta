@@ -18,8 +18,10 @@ import Business.Role.DoctorRole;
 import Business.Role.DonorRole;
 import Business.Role.DriverRole;
 import Business.Role.EnterpriseAdminDonorRole;
+import Business.Role.FundraiserRole;
 import Business.Role.HospitalBackOfficerRole;
 import Business.Role.SysAdminRole;
+import Business.Role.VolunteerRole;
 import Business.UserAccount.UserAccount;
 import Interface.Hospital.SubmitDemandGoodJPanel;
 
@@ -44,16 +46,21 @@ public class ConfigureASystem {
         Enterprise raichuHospital=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("raichuHospital", Enterprise.EnterpriseType.Hospital);
         Enterprise pikachuCharity=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("pikachuCharity", Enterprise.EnterpriseType.Charity);
         Enterprise puffCharity=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("puffCharity", Enterprise.EnterpriseType.Charity);      
-    
+        Enterprise mewtwoDonor=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("mewtwo", Enterprise.EnterpriseType.Donor);
+   
         //initialize some organizations
-        Organization doctorOrganization=raichuHospital.getOrganizationDirectory().createOrganization(Organization.Type.Doctor);
+        Organization donorOrganization=mewtwoDonor.getOrganizationDirectory().createOrganization(Organization.Type.Donor);
         Organization hospitalBackOfficerOrganization=raichuHospital.getOrganizationDirectory().createOrganization(Organization.Type.HospitalBackOfficer);
         
         Organization aidWorkerOrganization=pikachuCharity.getOrganizationDirectory().createOrganization(Organization.Type.AidWorker);
-        Organization driverOrganization=pikachuCharity.getOrganizationDirectory().createOrganization(Organization.Type.Driver);   
-        Organization puffAidWorkerOrganization=puffCharity.getOrganizationDirectory().createOrganization(Organization.Type.AidWorker);
-
+        Organization driverOrganization=pikachuCharity.getOrganizationDirectory().createOrganization(Organization.Type.Driver);
+        Organization volunteerOrganization=pikachuCharity.getOrganizationDirectory().createOrganization(Organization.Type.Volunteer);
         
+        Organization puffAidWorkerOrganization=puffCharity.getOrganizationDirectory().createOrganization(Organization.Type.AidWorker);
+        Organization doctorOrganization=raichuHospital.getOrganizationDirectory().createOrganization(Organization.Type.Doctor);
+        
+        Organization donationOrganization = pikachuCharity.getOrganizationDirectory().createOrganization(Organization.Type.Fundraiser);
+             
         //have some employees 
         Person Raichu=doctorOrganization.getPersonDirectory().createPerson("raichu");
         Person Bulbasaur=hospitalBackOfficerOrganization.getPersonDirectory().createPerson("bulbasaur");
@@ -61,6 +68,10 @@ public class ConfigureASystem {
         Person Squirtle=driverOrganization.getPersonDirectory().createPerson("Squirtle");
         Person Wartortle=driverOrganization.getPersonDirectory().createPerson("Wartortle");
         Person Puff=puffAidWorkerOrganization.getPersonDirectory().createPerson("Puff");
+        Person Gengar=volunteerOrganization.getPersonDirectory().createPerson("Gengar");
+        Person Mewtwo=donorOrganization.getPersonDirectory().createPerson("Mewtwo");
+        
+        Person Eevee=donationOrganization.getPersonDirectory().createPerson("Eevee");
         
         //create user account
         UserAccount usRaichu=doctorOrganization.getUserAccountDirectory().createUserAccount("raichu","raichu", Raichu, new DoctorRole());
@@ -69,8 +80,11 @@ public class ConfigureASystem {
         UserAccount usSquirtle=driverOrganization.getUserAccountDirectory().createUserAccount("squirtle", "squirtle", Squirtle, new DriverRole());
         UserAccount usWartortle=driverOrganization.getUserAccountDirectory().createUserAccount("wartortle", "wartortle", Wartortle, new DriverRole());
         UserAccount usPuff=puffAidWorkerOrganization.getUserAccountDirectory().createUserAccount("puff", "puff", Puff, new AidWorkerRole());
-
+        UserAccount usGengar=volunteerOrganization.getUserAccountDirectory().createUserAccount("gengar", "gengar", Gengar, new VolunteerRole());
+        UserAccount usMewtwo=donorOrganization.getUserAccountDirectory().createUserAccount("mewtwo", "mewtwo", Mewtwo, new DonorRole());
         
+        UserAccount usEevee=donationOrganization.getUserAccountDirectory().createUserAccount("eevee", "eevee", Eevee, new FundraiserRole());
+           
         //System admin 
         Person person1=system.getPersonDirectory().createPerson("sysadmin");
         UserAccount ua=system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", person1, new SysAdminRole());

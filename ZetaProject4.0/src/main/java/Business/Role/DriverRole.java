@@ -10,8 +10,8 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import Interface.Charity.DriverWorkAreaJPanel;
 import javax.swing.JPanel;
+import Interface.Charity.DriverWorkAreaJPanel;
 
 /**
  *

@@ -169,7 +169,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                                         .addComponent(DeleteJButton)
                                         .addGap(18, 18, 18)
                                         .addComponent(addDemandGoodJButton)))))))
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +189,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                     .addComponent(addDemandGoodJButton))
                 .addGap(28, 28, 28)
                 .addComponent(submitJButton)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -364,14 +364,16 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                     //populateTable();
                     //return;
                 }else{
+                    //System.out.println();
                     hrequest.setStatus("Send");
-                    dateJTextField.setText("");
                     JOptionPane.showMessageDialog(null, "Submit Successfully!");
-                    
+                    //populateTable();
                 }
          }
         
        populateTable();
+       dateJTextField.setText("");
+       JOptionPane.showMessageDialog(null, "Submit Successfully!");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
 

@@ -45,16 +45,21 @@ public class AssignWorkRequestJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(WorkRequest request:hospital.getWorkQueue().getWorkRequestList()){
+            if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }
+            
             if(request.getStatus().equals("Create")){
                 continue;
             }
+            HospitalWorkRequest hrequest=(HospitalWorkRequest)request;
             Object[]row=new Object[5];
-            row[0]=request.getRequestId();
-            row[1]=request.getSender().getPerson().getName();
-            System.out.print(request.getHandler());
-            row[2]=request.getHandler()==null?null:request.getHandler().getPerson().getName();
-            row[3]=request;
-            row[4]=request.getStatus();
+            row[0]=hrequest.getRequestId();
+            row[1]=hrequest.getSender().getPerson().getName();
+            System.out.print(hrequest.getHandler());
+            row[2]=hrequest.getHandler()==null?null:request.getHandler().getPerson().getName();
+            row[3]=hrequest;
+            row[4]=hrequest.getStatus();
             
             model.addRow(row);
         }
