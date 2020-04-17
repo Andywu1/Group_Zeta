@@ -28,14 +28,14 @@ public abstract class Role {
         DonorEntAdmin("Donor Enterprise Admin"),
         
         //
-        CharityAdministrator("Charity Administrator"),
+        //CharityAdministrator("Charity Administrator"),
         AidWorker("Aid Worker"),
         Volunteer("Volunteer"),
         Driver("Driver"),
         Fundraiser("Fundraiser"),
         //
         Doctor("Doctor"),
-        HospitalAdministrator("Hospital Administrator"),
+        //HospitalAdministrator("Hospital Administrator"),
         HospitalBackOfficer("Hospital Back Officer"),
         //
         Donor("Donor");

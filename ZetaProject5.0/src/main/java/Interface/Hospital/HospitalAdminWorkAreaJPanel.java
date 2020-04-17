@@ -45,7 +45,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
   
         list.add("Doctor Organization");
         list.add("Hospital Back Officer Organization");
-        list.add("Hospital Administrator Organization");
         
         allowedTypes.put("Hospital Enterprise Admin", list);
         
@@ -410,11 +409,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         }
         }
          
-        if(orgType.equals("Hospital Administrator Organization"))
-        {
-           enterprise.getOrganizationDirectory().createOrganization(Organization.Type.HospitalAdministrator);//Organization.Type.HospitalAdministrator);
-        }else
-        {
            if(orgType.equals("Doctor Organization"))
            {
                enterprise.getOrganizationDirectory().createOrganization(Organization.Type.Doctor);
@@ -426,16 +420,11 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                  enterprise.getOrganizationDirectory().createOrganization(Organization.Type.HospitalBackOfficer);
              }
            }
-        }
-         
+           
 
         //Charity Organization
-        if(orgType.equals("Charity Administrator Organization"))
-        {
-           enterprise.getOrganizationDirectory().createOrganization(Organization.Type.CharityAdministrator);
-        } else
-        {
-             if(orgType.equals("Aid Worker Organization"))
+        
+        if(orgType.equals("Aid Worker Organization"))
         {
            enterprise.getOrganizationDirectory().createOrganization(Organization.Type.AidWorker);
         }else{
@@ -452,8 +441,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                          }
                      }
                  }
-             }
-        }
+             }      
         
        
         populateOrganizationTable();

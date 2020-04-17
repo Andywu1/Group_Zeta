@@ -29,9 +29,6 @@ public class OrganizationDirectory {
         if(type.getValue().equals(Type.AidWorker.getValue())){
             organization=new AidWorkerOrganization();
             organizationList.add(organization);
-        }else if(type.getValue().equals(Type.CharityAdministrator.getValue())){
-            organization=new CharityAdministratorOrganization();
-            organizationList.add(organization);
         }else if(type.getValue().equals(Type.Doctor.getValue())){
             organization=new DoctorOrganization();
             organizationList.add(organization);
@@ -43,9 +40,6 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         }else if(type.getValue().equals(Type.Fundraiser.getValue())){
             organization=new FundraiserOrganization();
-            organizationList.add(organization);
-        }else if(type.getValue().equals(Type.HospitalAdministrator.getValue())){
-            organization=new HospitalAdministratorOrganization();
             organizationList.add(organization);
         }else if(type.getValue().equals(Type.HospitalBackOfficer.getValue())){
             organization=new HospitalBackOfficerOrganization();

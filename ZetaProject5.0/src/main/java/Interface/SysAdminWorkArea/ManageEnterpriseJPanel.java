@@ -72,7 +72,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backJButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         enterpriseJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -85,15 +84,15 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         deleteJButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         updateJButton = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        backJButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(166, 210, 239));
-
-        backJButton.setText("< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
+        setBackground(new java.awt.Color(136, 195, 234));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,11 +112,16 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseJTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 375, 104));
+
         jLabel1.setText("Network");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
 
         jLabel2.setText("Enterprise Type");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
 
         jLabel3.setText("Name");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
 
         networkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +129,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 111, -1));
 
         enterpriseTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterpriseTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 enterpriseTypeComboBoxActionPerformed(evt);
             }
         });
+        add(enterpriseTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 111, -1));
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 111, -1));
 
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +146,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 createJButtonActionPerformed(evt);
             }
         });
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
 
         deleteJButton.setText("Delete");
         deleteJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -146,8 +154,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 deleteJButtonActionPerformed(evt);
             }
         });
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Manage Enterprise");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
 
         updateJButton.setText("Update Name");
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,74 +166,61 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 updateJButtonActionPerformed(evt);
             }
         });
+        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel1))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
-                                .addComponent(createJButton)))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(networkComboBox, 0, 111, Short.MAX_VALUE)
-                                .addComponent(enterpriseTypeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nameTextField))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(deleteJButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(updateJButton))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJButton)
-                        .addGap(137, 137, 137)
-                        .addComponent(jLabel4)))
-                .addContainerGap(97, Short.MAX_VALUE))
+        jPanel3.setBackground(new java.awt.Color(0, 94, 170));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Manage Enterprise Admin");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 260, -1));
+
+        jPanel4.setBackground(new java.awt.Color(0, 105, 186));
+
+        jLabel8.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Manage Enterprise");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(backJButton))
-                .addGap(4, 4, 4)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(enterpriseTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createJButton)
-                    .addComponent(deleteJButton)
-                    .addComponent(updateJButton))
-                .addGap(96, 96, 96))
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 260, 60));
+
+        jLabel9.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Manage Network");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, 40));
+
+        backJButton.setText("< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, -1, -1));
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -351,6 +349,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
+    private javax.swing.JButton backJButton1;
     private javax.swing.JButton createJButton;
     private javax.swing.JButton deleteJButton;
     private javax.swing.JTable enterpriseJTable;
@@ -359,6 +358,15 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JComboBox networkComboBox;

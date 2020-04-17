@@ -159,7 +159,6 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel3)
                                 .addGap(38, 38, 38)
                                 .addComponent(dateJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(createJButton)
                                 .addGap(32, 32, 32)
@@ -168,8 +167,9 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(DeleteJButton)
                                         .addGap(18, 18, 18)
-                                        .addComponent(addDemandGoodJButton)))))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                                        .addComponent(addDemandGoodJButton))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(398, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,8 +177,8 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(backJButton)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(dateJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,7 +189,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                     .addComponent(addDemandGoodJButton))
                 .addGap(28, 28, 28)
                 .addComponent(submitJButton)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -313,27 +313,30 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
                     HospitalWorkRequest newrequest=(HospitalWorkRequest)request;
                     if(wrSelectedRow.equals(newrequest.getRequestId())){
-                        useraccount.getWorkQueue().getWorkRequestList().remove(newrequest);
-                        hospital.getWorkQueue().getWorkRequestList().remove(newrequest);
-                    
-                        Enterprise charity=null;
-                        for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
-                            if(enterprise.getEnterpriseType().getValue().equals("Charity")){
-                                charity=enterprise;
+                        if(newrequest.getStatus().equals("Send")||newrequest.getStatus().equals("Create")){
+                            useraccount.getWorkQueue().getWorkRequestList().remove(newrequest);
+                            hospital.getWorkQueue().getWorkRequestList().remove(newrequest);
+                            
+                            Enterprise charity=null;
+                            for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
+                                if(enterprise.getEnterpriseType().getValue().equals("Charity")){
+                                    charity=enterprise;
+                                }
                             }
-                        }
 
-                        if(charity!=null){
-                            charity.getWorkQueue().getWorkRequestList().remove(newrequest);
-
+                            if(charity!=null){
+                                charity.getWorkQueue().getWorkRequestList().remove(newrequest);
+                            } 
+                           JOptionPane.showMessageDialog(null, "Delete Successfully!"); 
+                        }else{
+                             JOptionPane.showMessageDialog(null, "This request is processing,you cannot delete it.!"); 
                         }
-                        
-                        break;
+                        break;  
                     }
                 }
                 populateTable();
                 dateJTextField.setText("");
-                JOptionPane.showMessageDialog(null, "Delete Successfully!");
+                
             }
 
         } else {

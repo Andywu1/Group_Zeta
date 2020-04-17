@@ -6,13 +6,11 @@
 package Business.Ecosystem;
 
 import Business.Enterprise.Enterprise;
-import Business.Enterprise.HospitalEnterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.People.Person;
 import Business.Role.EnterpriseAdminHospitalRole;
 import Business.Role.AidWorkerRole;
-import Business.Role.CharityAdministratorRole;
 import Business.Role.EnterpriseAdminCharityRole;
 import Business.Role.DoctorRole;
 import Business.Role.DonorRole;
@@ -23,14 +21,12 @@ import Business.Role.HospitalBackOfficerRole;
 import Business.Role.SysAdminRole;
 import Business.Role.VolunteerRole;
 import Business.UserAccount.UserAccount;
-import Interface.Hospital.SubmitDemandGoodJPanel;
 
 /**
  *
  * @author kathe &
  */
 public class ConfigureASystem {
-    private CharityAdministratorRole role;
     public static EcoSystem configure(){
         
         //create an enterprise
@@ -46,7 +42,7 @@ public class ConfigureASystem {
         Enterprise raichuHospital=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("raichuHospital", Enterprise.EnterpriseType.Hospital);
         Enterprise pikachuCharity=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("pikachuCharity", Enterprise.EnterpriseType.Charity);
         Enterprise puffCharity=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("puffCharity", Enterprise.EnterpriseType.Charity);      
-        Enterprise mewtwoDonor=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("mewtwo", Enterprise.EnterpriseType.Donor);
+        Enterprise mewtwoDonor=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("mewtwoDonor", Enterprise.EnterpriseType.Donor);
    
         //initialize some organizations
         Organization donorOrganization=mewtwoDonor.getOrganizationDirectory().createOrganization(Organization.Type.Donor);
@@ -98,10 +94,11 @@ public class ConfigureASystem {
         Person personpeter=pikachuCharity.getPersonDirectory().createPerson("peter");
         UserAccount Peter = pikachuCharity.getUserAccountDirectory().createUserAccount("peter", "peter", personpeter, new EnterpriseAdminCharityRole());
         
+       // Enterprise xDonor=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("xDonor", Enterprise.EnterpriseType.Donor);      
+
         //3.Donor
-        Enterprise xDonor=pokemonNetwork.getEnterpriseDirectory().createAndAddEnterprise("xDonor", Enterprise.EnterpriseType.Donor);      
-        Person personkal=xDonor.getPersonDirectory().createPerson("kal");
-        UserAccount Kal = xDonor.getUserAccountDirectory().createUserAccount("kal", "kal", personpeter, new EnterpriseAdminDonorRole());
+        Person personkal=mewtwoDonor.getPersonDirectory().createPerson("kal");
+        UserAccount Kal = mewtwoDonor.getUserAccountDirectory().createUserAccount("kal", "kal", personpeter, new EnterpriseAdminDonorRole());
         
         return system;
     }

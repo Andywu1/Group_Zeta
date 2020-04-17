@@ -42,7 +42,6 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         allowedTypes = new HashMap<>();      
 
         ArrayList<String> list = new ArrayList<String>();
-        list.add("Charity Administrator Organization");
         list.add("Aid Worker Organization");
         list.add("Volunteer Organization");
         list.add("Driver Organization");
@@ -411,12 +410,8 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         }           
 
         //Charity Organization
-        if(orgType.equals("Charity Administrator Organization"))
-        {
-           enterprise.getOrganizationDirectory().createOrganization(Organization.Type.CharityAdministrator);
-        } else
-        {
-             if(orgType.equals("Aid Worker Organization"))
+        
+        if(orgType.equals("Aid Worker Organization"))
         {
            enterprise.getOrganizationDirectory().createOrganization(Organization.Type.AidWorker);
         }else{
@@ -434,7 +429,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                      }
                  }
              }
-        }
+        
         
        
         populateOrganizationTable();

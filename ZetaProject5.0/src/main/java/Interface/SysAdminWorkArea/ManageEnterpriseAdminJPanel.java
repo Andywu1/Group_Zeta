@@ -14,11 +14,9 @@ import javax.swing.table.DefaultTableModel;
 import Business.People.Person;
 import Business.Role.EnterpriseAdminHospitalRole;
 import javax.swing.JOptionPane;
-import Business.Role.CharityAdministratorRole;
+
 import Business.Role.EnterpriseAdminCharityRole;
 import Business.Role.EnterpriseAdminDonorRole;
-import Business.Role.HospitalAdministratorRole;
-import Business.Role.SysAdminRole;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.regex.Matcher;
@@ -105,12 +103,17 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         passwordField = new javax.swing.JPasswordField();
         showPasswordCheckBox = new javax.swing.JCheckBox();
         createJButton = new javax.swing.JButton();
-        backJButton = new javax.swing.JButton();
         deleteJButton = new javax.swing.JButton();
         showpassword = new javax.swing.JLabel();
         UpdateJButton = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        backJButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(192, 233, 255));
+        setBackground(new java.awt.Color(136, 195, 234));
         setMinimumSize(new java.awt.Dimension(800, 671));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -132,16 +135,17 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseAdminJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 42, 375, 103));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 375, 103));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Manage Enterprise Admin");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 11, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
 
         jLabel1.setText("Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 185, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
         jLabel2.setText("Enterprise");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 228, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
 
         networkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +153,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 182, 170, -1));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 170, -1));
 
         enterpriseComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterpriseComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +161,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 228, 170, -1));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 170, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Enterprise Admin Information"));
 
@@ -207,10 +211,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(showPasswordCheckBox)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 370, 300));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 370, 300));
 
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -218,15 +222,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 createJButtonActionPerformed(evt);
             }
         });
-        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, -1, -1));
-
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 600, -1, -1));
 
         deleteJButton.setText("Delete");
         deleteJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -234,7 +230,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 deleteJButtonActionPerformed(evt);
             }
         });
-        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, -1, -1));
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, -1, -1));
         add(showpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 40, 40));
 
         UpdateJButton.setText("Update");
@@ -243,7 +239,61 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 UpdateJButtonActionPerformed(evt);
             }
         });
-        add(UpdateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 600, -1, -1));
+        add(UpdateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 600, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(0, 94, 170));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(0, 105, 186));
+
+        jLabel7.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Manage Enterprise Admin");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(20, 20, 20))
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 300, 60));
+
+        jLabel9.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Manage Network");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, 40));
+
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
+
+        jLabel8.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Manage Enterprise");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 180, 40));
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteJButtonActionPerformed
@@ -501,7 +551,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JComboBox networkComboBox;

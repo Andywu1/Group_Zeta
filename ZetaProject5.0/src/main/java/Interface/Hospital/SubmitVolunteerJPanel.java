@@ -309,17 +309,24 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         int selectedRow = submitVolunteerJTable.getSelectedRow();
-        
-        if(selectedRow>=0){
-            String cleaner =  cleanerJTextField.getText();
-            String server = serverJTextField.getText(); 
+        Integer vw = (Integer) submitVolunteerJTable.getValueAt(selectedRow, 0);
+
+
+        if(selectedRow<0){
+           JOptionPane.showMessageDialog(null, "Please select a Row!!"); 
+           cleanerJTextField.setText("");
+           serverJTextField.setText(""); 
+           return;
+        } 
+             
+        String cleaner =  cleanerJTextField.getText();
+        String server = serverJTextField.getText(); 
             
-            if(cleaner==null||cleaner.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please input the Cleaner Number!", "CREATE", JOptionPane.ERROR_MESSAGE);
-            return;
+        if(cleaner==null||cleaner.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Please input the Cleaner Number!", "CREATE", JOptionPane.ERROR_MESSAGE);
+        return;
         }
        
-        
         if(server==null||server.isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Server Number!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
@@ -353,19 +360,27 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             return;
         }    
               
-           Integer vw = (Integer) submitVolunteerJTable.getValueAt(selectedRow, 0);
-            
-           VolunteerWorkRequest vrequest=null;
-            for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
-                VolunteerWorkRequest newrequest=(VolunteerWorkRequest)request;
-                if(vw.equals(newrequest.getRequestId())){
-                    vrequest=newrequest;
-                    break;
-                }
+        VolunteerWorkRequest vrequest=null;
+        
+         for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
+             
+            if(request.getClass().getName().contains("HospitalWorkRequest")){
+                continue;
             }
-            
+             if(request==null){
+         }
+             VolunteerWorkRequest newrequest=(VolunteerWorkRequest)request;
+             if(vw.equals(newrequest.getRequestId())){
+                 vrequest=newrequest;
+                 break;
+             }
+         } 
+         
+//      
+//         
+         System.out.println(vrequest.getVolunteer().getCleanerCount());
            
-            if(vrequest!=null){
+          if(vrequest!=null){
                 vrequest.getVolunteer().setCleanerCount(Integer.parseInt(cleaner));
                 vrequest.getVolunteer().setServerCount(Integer.parseInt(server));   
             }
@@ -374,12 +389,6 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Updated Successfully!"); 
             cleanerJTextField.setText("");
             serverJTextField.setText("");        
-        }else
-        {
-           JOptionPane.showMessageDialog(null, "Please select a Row!!"); 
-           cleanerJTextField.setText("");
-           serverJTextField.setText(""); 
-        }
         
     }//GEN-LAST:event_updateJButtonActionPerformed
 
@@ -407,17 +416,20 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             //vw.getVolunteerDirectory()
             VolunteerWorkRequest vrequest=null;
             for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
+                if(request.getClass().getName().contains("HospitalWorkRequest")){
+                    continue;
+                }
                 VolunteerWorkRequest newrequest=(VolunteerWorkRequest)request;
                 if(vw.equals(newrequest.getRequestId())){
                     vrequest=newrequest;
                     break;
                 }
             }
+            
             vrequest.getToEnterprise().getWorkQueue().getWorkRequestList().remove(vrequest);
             useraccount.getWorkQueue().getWorkRequestList().remove(vrequest);
             hospital.getWorkQueue().getWorkRequestList().remove(vrequest);
-            
-
+           
            // 
             populateTable(); 
             cleanerJTextField.setText("");

@@ -17,7 +17,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Interface.SysAdminWorkArea.RegisterSysadminJPanel;
-import Business.Role.CharityAdministratorRole;
 import Interface.SysAdminWorkArea.RegisterSysadminJPanel;
 import java.awt.Dimension;
 
@@ -33,12 +32,12 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    private CharityAdministratorRole role;
     
     public MainJFrame() {
         initComponents();
         system=dB4OUtil.retrieveSystem();
-         this.setSize(1200, 700);    }
+         this.setSize(1200, 700);    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,11 +59,17 @@ public class MainJFrame extends javax.swing.JFrame {
         showPasswordCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1200, 700));
 
+        rightJPanel.setToolTipText("");
+        rightJPanel.setDoubleBuffered(false);
+        rightJPanel.setName(""); // NOI18N
         rightJPanel.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(rightJPanel);
+        rightJPanel.getAccessibleContext().setAccessibleName("");
+        rightJPanel.getAccessibleContext().setAccessibleDescription("");
 
-        leftJPanel.setBackground(new java.awt.Color(255, 255, 255));
+        leftJPanel.setBackground(new java.awt.Color(0, 151, 170));
         leftJPanel.setPreferredSize(new java.awt.Dimension(300, 850));
         leftJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -74,7 +79,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 userNameJTextFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, 70));
+        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 70));
 
         passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
         passwordField.setPreferredSize(new java.awt.Dimension(15, 40));
@@ -83,7 +88,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 passwordFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, 60));
+        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, 60));
 
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +96,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 loginJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 80, 33));
+        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 80, 33));
 
         logoutJButton.setText("Logout");
         logoutJButton.setEnabled(false);
@@ -119,7 +124,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 showPasswordCheckBoxActionPerformed(evt);
             }
         });
-        leftJPanel.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        leftJPanel.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         jSplitPane1.setLeftComponent(leftJPanel);
 
@@ -130,11 +135,11 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
