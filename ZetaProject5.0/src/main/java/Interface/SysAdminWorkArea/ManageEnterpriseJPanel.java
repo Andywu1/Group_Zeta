@@ -176,7 +176,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Manage Enterprise Admin");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 260, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 250, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 105, 186));
 
@@ -191,9 +191,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +210,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Manage Network");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, 40));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 160, 40));
 
         backJButton.setText("< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +218,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, -1, -1));
+        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, -1));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 700));
     }// </editor-fold>//GEN-END:initComponents
@@ -249,7 +249,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         }
         
         String name = nameTextField.getText();  
-        if(name.equals("")){
+        if(name== null ||name.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Name can't be empty!");
             return;
         }
@@ -315,41 +315,43 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
         // TODO add your handling code here:
         int selectedRow = enterpriseJTable.getSelectedRow();
+
+        if(selectedRow<0)
+        {
+            JOptionPane.showMessageDialog(null, "Please selet a row from table first.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;  
+        }
+        
         Network network = (Network) enterpriseJTable.getValueAt(selectedRow, 1);
         Enterprise enterprise = (Enterprise) enterpriseJTable.getValueAt(selectedRow, 0);
         
-        if (selectedRow >= 0) {
-            String name = nameTextField.getText();
-            if (name.equals("")) {
-                JOptionPane.showMessageDialog(null, "Name is empty!", "Warning", JOptionPane.WARNING_MESSAGE);
+        String name = nameTextField.getText();
+        if (name== null ||name.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Name is empty!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+            
+        for (Enterprise ent :network.getEnterpriseDirectory().getEnterpriseList()){
+            if(ent.getName().equals(name)){
+                JOptionPane.showMessageDialog(null, "This enterprise already exist!");
                 return;
             }
-            
-            for (Enterprise ent :network.getEnterpriseDirectory().getEnterpriseList()){
-                if(ent.getName().equals(name)){
-                    JOptionPane.showMessageDialog(null, "This enterprise already exist!");
-                    return;
-                }
-            }
-            
-            int dialogButton = JOptionPane.YES_NO_OPTION;
-            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to update this enterprise?", "Warning", dialogButton);
-            if (dialogResult == JOptionPane.YES_OPTION) {
-                enterprise.setName(name);            
-                populateTable();
-                JOptionPane.showMessageDialog(null, "Update Successfully!!");
-                nameTextField.setText("");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Please selet a row from table first.", "Warning", JOptionPane.WARNING_MESSAGE);
-        }  
-        
+        }
+
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to update this enterprise?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            enterprise.setName(name);            
+            populateTable();
+            JOptionPane.showMessageDialog(null, "Update Successfully!!");
+            nameTextField.setText("");
+        }
+ 
     }//GEN-LAST:event_updateJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
-    private javax.swing.JButton backJButton1;
     private javax.swing.JButton createJButton;
     private javax.swing.JButton deleteJButton;
     private javax.swing.JTable enterpriseJTable;
@@ -358,13 +360,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;

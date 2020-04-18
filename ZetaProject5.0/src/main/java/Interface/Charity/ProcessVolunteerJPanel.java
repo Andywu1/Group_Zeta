@@ -128,7 +128,7 @@ public class ProcessVolunteerJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(submitresult==null||submitresult.isEmpty()){
+        if(submitresult==null||submitresult.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "You must input something!");
             return;
         }else{

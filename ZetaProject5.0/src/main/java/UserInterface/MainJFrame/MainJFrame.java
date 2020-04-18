@@ -36,7 +36,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system=dB4OUtil.retrieveSystem();
-         this.setSize(1200, 700);    
+         //this.setSize(1200, 700);    
     }
 
     /**
@@ -59,15 +59,16 @@ public class MainJFrame extends javax.swing.JFrame {
         showPasswordCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
+
+        jSplitPane1.setAutoscrolls(true);
 
         rightJPanel.setToolTipText("");
+        rightJPanel.setAutoscrolls(true);
         rightJPanel.setDoubleBuffered(false);
         rightJPanel.setName(""); // NOI18N
         rightJPanel.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(rightJPanel);
         rightJPanel.getAccessibleContext().setAccessibleName("");
-        rightJPanel.getAccessibleContext().setAccessibleDescription("");
 
         leftJPanel.setBackground(new java.awt.Color(0, 151, 170));
         leftJPanel.setPreferredSize(new java.awt.Dimension(300, 850));
@@ -79,7 +80,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 userNameJTextFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 70));
+        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 160, 70));
 
         passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
         passwordField.setPreferredSize(new java.awt.Dimension(15, 40));
@@ -88,7 +89,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 passwordFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, 60));
+        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 60));
 
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +97,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 loginJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 80, 33));
+        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 80, 20));
 
         logoutJButton.setText("Logout");
         logoutJButton.setEnabled(false);
@@ -105,7 +106,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 logoutJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(logoutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 97, -1));
+        leftJPanel.add(logoutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 97, -1));
 
         registerJButton.setText("Register");
         registerJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +114,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 registerJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(registerJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 511, 97, -1));
+        leftJPanel.add(registerJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 511, 97, -1));
 
         showPasswordCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         showPasswordCheckBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -124,7 +125,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 showPasswordCheckBoxActionPerformed(evt);
             }
         });
-        leftJPanel.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        leftJPanel.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         jSplitPane1.setLeftComponent(leftJPanel);
 
@@ -132,10 +133,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,11 +194,13 @@ public class MainJFrame extends javax.swing.JFrame {
         Organization inOrganization=null;
 
         if (userAccount == null) {
-            for(Network network:system.getNetworkList()){
+            userAccount=system.getSystemUserDirectory().authenticateUser(userName, password);
+            if(userAccount==null){
+                for(Network network:system.getNetworkList()){
                 //Step 2.a: check against each enterprise
                 for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
                     userAccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
-
+                    
                     if(userAccount!=null){
                         inEnterprise=enterprise;
                         myNetwork=network;
@@ -218,22 +218,23 @@ public class MainJFrame extends javax.swing.JFrame {
                         }
                     }
 
-                    if(inOrganization!=null){
-                        break;
-                    }
-
-                    if(inEnterprise!=null){
+                    if(userAccount!=null){
                         break;
                     }
                 }
+                if(userAccount != null) {
+                    break;
+                }
             }
+            }
+            
 
         }
 
         if(userAccount==null){
             JOptionPane.showMessageDialog(null, "Invalid credentials");
-            userNameJTextField.setText("");
-            passwordField.setText("");
+            //userNameJTextField.setText("");
+            //passwordField.setText("");
             return;
         }
         else{

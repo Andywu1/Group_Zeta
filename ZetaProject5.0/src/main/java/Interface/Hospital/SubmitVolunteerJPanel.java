@@ -232,13 +232,12 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         }
         
         
-        if(cleaner==null||cleaner.isEmpty()){
+        if(cleaner== null ||cleaner.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Cleaner Number!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
-       
-        
-        if(server==null||server.isEmpty()){
+
+        if(server== null ||server.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Server Number!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -322,12 +321,12 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         String cleaner =  cleanerJTextField.getText();
         String server = serverJTextField.getText(); 
             
-        if(cleaner==null||cleaner.isEmpty()){
+        if(cleaner==null||cleaner.trim().isEmpty()){
         JOptionPane.showMessageDialog(null, "Please input the Cleaner Number!", "CREATE", JOptionPane.ERROR_MESSAGE);
         return;
         }
        
-        if(server==null||server.isEmpty()){
+        if(server==null||server.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Server Number!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -362,18 +361,19 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
               
         VolunteerWorkRequest vrequest=null;
         
-         for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
+        for(WorkRequest request:useraccount.getWorkQueue().getWorkRequestList()){
              
             if(request.getClass().getName().contains("HospitalWorkRequest")){
                 continue;
             }
              if(request==null){
          }
-             VolunteerWorkRequest newrequest=(VolunteerWorkRequest)request;
-             if(vw.equals(newrequest.getRequestId())){
-                 vrequest=newrequest;
-                 break;
-             }
+        
+            VolunteerWorkRequest newrequest=(VolunteerWorkRequest)request;
+            if(vw.equals(newrequest.getRequestId())){
+                vrequest=newrequest;
+                break;
+            }
          } 
          
 //      

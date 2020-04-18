@@ -131,7 +131,7 @@ public class DriverProcessJPanel extends javax.swing.JPanel {
              resultTextField.setText("");
              return;
         }
-        if(submitresult==null||submitresult.isEmpty()){
+        if(submitresult==null||submitresult.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "You must input something!");
             return;
         }else{

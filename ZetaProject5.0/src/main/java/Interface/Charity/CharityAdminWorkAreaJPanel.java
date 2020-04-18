@@ -101,7 +101,6 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         organizationTypeComboBox = new javax.swing.JComboBox();
         addJButton = new javax.swing.JButton();
-        deleteOrgButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
@@ -139,7 +138,15 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
             new String [] {
                 "Organization Id", "Organization Name"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(organizationJTable);
 
         jLabel2.setText("Organization Type");
@@ -155,13 +162,6 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
-            }
-        });
-
-        deleteOrgButton.setText("Delete Organization");
-        deleteOrgButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteOrgButtonActionPerformed(evt);
             }
         });
 
@@ -181,9 +181,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(organizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(organizationPanelLayout.createSequentialGroup()
                         .addGap(222, 222, 222)
-                        .addComponent(addJButton)
-                        .addGap(62, 62, 62)
-                        .addComponent(deleteOrgButton)))
+                        .addComponent(addJButton)))
                 .addContainerGap(251, Short.MAX_VALUE))
         );
         organizationPanelLayout.setVerticalGroup(
@@ -196,9 +194,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(organizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
-                .addGroup(organizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addJButton)
-                    .addComponent(deleteOrgButton))
+                .addComponent(addJButton)
                 .addContainerGap(189, Short.MAX_VALUE))
         );
 
@@ -213,7 +209,15 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
             new String [] {
                 "Organization Id", "Organization", "User Name", "Role"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         userTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userTableMouseClicked(evt);
@@ -513,24 +517,26 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
           
                for(Organization newOrg: enterprise.getOrganizationDirectory().getOrganizationList())
                {
-                   for (UserAccount userAccount : newOrg.getUserAccountDirectory().getUserAccountList())
+                   for (UserAccount ua : newOrg.getUserAccountDirectory().getUserAccountList())
                    {
-                       if(userAccount.getUsername().equals(username)){
+                       if(ua.getUsername().equals(username)){
                            JOptionPane.showMessageDialog(null, "This username is already registered!");
                            return;
                     }
                 }    
                }
 
-      Organization organization = (Organization) organizationComboBox.getSelectedItem();
-      Person person =  organization.getPersonDirectory().createPerson(name);
-      Role role = (Role) roleComboBox.getSelectedItem();
-      
-      organization.getUserAccountDirectory().createUserAccount(username, password, person, role);
-      populateUserTable();  
-      JOptionPane.showMessageDialog(null, "User is created successfully!");
+        Organization organization = (Organization) organizationComboBox.getSelectedItem();
+        Person person =  organization.getPersonDirectory().createPerson(name);
+        Role role = (Role) roleComboBox.getSelectedItem();
+
+        organization.getUserAccountDirectory().createUserAccount(username, password, person, role);
+        
+        populateUserTable();  
+        JOptionPane.showMessageDialog(null, "User is created successfully!");
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
+        usernameTextField.setEnabled(true);
     }//GEN-LAST:event_createButtonActionPerformed
 
      private boolean passwordPatternCorrect(){
@@ -562,7 +568,8 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
             UserAccount ua = (UserAccount) userTable.getValueAt(selectedRow,2);
             nameTextField.setText(ua.getPerson().getName());
             usernameTextField.setText(ua.getUsername());
-            passwordField.setText(ua.getPassword());   
+            passwordField.setText(ua.getPassword()); 
+            usernameTextField.setEnabled(false);
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }        
@@ -605,91 +612,80 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        String name = nameTextField.getText();
-        String username = usernameTextField.getText();
-        String password = String.valueOf(passwordField);
-         
-        if(name.equals("")||username.equals("")||password.equals("")){
-        JOptionPane.showMessageDialog(null, "Please selet a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
-        return;
-        }
         
         int selectedRow = userTable.getSelectedRow();
-        UserAccount userAccount = (UserAccount) userTable.getValueAt(selectedRow, 2);
         
-        if (selectedRow >= 0) {
-            
-            if (name.equals("")) {
-                JOptionPane.showMessageDialog(null, "Name is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-            
-            if (username.equals("")) {
-                JOptionPane.showMessageDialog(null, "UserName is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
-                showPasswordCheckBox.setSelected(false);
-                return;
-            }
- 
-            if (password.equals("")) {
-                JOptionPane.showMessageDialog(null, "Password is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
-                showPasswordCheckBox.setSelected(false);
-                return;
-            }
-            
-            if(!passwordPatternCorrect()){
-            JOptionPane.showMessageDialog(null, "Password must follow the format");
-            showPasswordCheckBox.setSelected(false);
-            return;
-            }
-
-            int dialogButton = JOptionPane.YES_NO_OPTION;
-            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to update this information?", "Warning", dialogButton);
-            if (dialogResult == JOptionPane.YES_OPTION) {
-
-            //Check duplicated user name 
-            for(Organization organization :enterprise.getOrganizationDirectory().getOrganizationList())
-                {
-                    for(UserAccount u : organization.getUserAccountDirectory().getUserAccountList()){
-                        if(u.getUsername().equals(username)){
-                            JOptionPane.showMessageDialog(null, "This username already exists!");
-                            setTextFiledNull("");
-                            return;
-                        }
-                 }
-             }
-            
-            //update infomation
-            userAccount.getPerson().setName(name);
-            userAccount.setUsername(username);
-            userAccount.setPassword(password);
-             
-            populateUserTable();  
-            JOptionPane.showMessageDialog(null, "The information is updated successfully!");
-            setTextFiledNull("");
-            showPasswordCheckBox.setSelected(false);
-            }
-        } else {
+        if(selectedRow<0){
             JOptionPane.showMessageDialog(null, "Please selet a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        UserAccount userAccount = (UserAccount) userTable.getValueAt(selectedRow, 2);
+         
+        String name = nameTextField.getText();
+        String username = usernameTextField.getText();
+        String password = passwordField.getText();
+        
+            
+        if (name== null ||name.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Name is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
+            usernameTextField.setEnabled(true);
+            return;
+        }
+            
+//        if (username== null ||username.trim().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "UserName is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
+//            showPasswordCheckBox.setSelected(false);
+//            usernameTextField.setEnabled(true);
+//            return;
+//        }
+
+        if (password== null ||password.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Password is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
+            showPasswordCheckBox.setSelected(false);
+            usernameTextField.setEnabled(true);
+            return;
+        }
+            
+        if(!passwordPatternCorrect()){
+            JOptionPane.showMessageDialog(null, "Password must follow the format.");
+            showPasswordCheckBox.setSelected(false);
+            usernameTextField.setEnabled(true);
+            return;
+        }
+
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to update this information?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+
+        //Check 
+        for(Organization newOrg: enterprise.getOrganizationDirectory().getOrganizationList())
+        {
+               for (UserAccount ua : newOrg.getUserAccountDirectory().getUserAccountList())
+               {
+                   if(ua.getPerson().getName().equals(name)&&ua.getPassword().equals(password)){
+                       JOptionPane.showMessageDialog(null, "No information is changed!");
+                       setTextFiledNull("");
+                       usernameTextField.setEnabled(true);
+                       return;
+                   }
+               }    
+        }
+
+
+        //update infomation
+        userAccount.getPerson().setName(name);
+       // userAccount.setUsername(username);
+        userAccount.setPassword(password);
+
+        populateUserTable();  
+        JOptionPane.showMessageDialog(null, "The information is updated successfully!");
+        setTextFiledNull("");
+        showPasswordCheckBox.setSelected(false);
+        usernameTextField.setEnabled(true);
         }  
-       
         
     }//GEN-LAST:event_updateButtonActionPerformed
-
-    private void deleteOrgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteOrgButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = organizationJTable.getSelectedRow();
-        if(selectedRow >= 0){
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete this Organization?", "Warning", selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
-                Organization org = (Organization) organizationJTable.getValueAt(selectedRow, 1);
-                enterprise.getOrganizationDirectory().getOrganizationList().remove(org);
-                populateOrganizationTable();
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
-        }
-    }//GEN-LAST:event_deleteOrgButtonActionPerformed
 
     private void TabbedPaneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabbedPaneMousePressed
         // TODO add your handling code here:
@@ -707,7 +703,6 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addJButton;
     private javax.swing.JButton createButton;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JButton deleteOrgButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

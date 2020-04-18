@@ -54,9 +54,14 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
         submitWorkRequestJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        setBackground(new java.awt.Color(221, 237, 252));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setText("Doctor Work Area");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 340, 39));
 
         backJButton.setText("<<back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,8 +69,11 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
+        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         valueLabel.setText("<value>");
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 320, 60));
 
         submitWorkRequestJButton.setText("Submit Work Requst");
         submitWorkRequestJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -73,40 +81,12 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 submitWorkRequestJButtonActionPerformed(evt);
             }
         });
+        add(submitWorkRequestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 233, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(backJButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(275, 275, 275)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(submitWorkRequestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(281, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(backJButton)
-                .addGap(9, 9, 9)
-                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(submitWorkRequestJButton)
-                .addContainerGap(352, Short.MAX_VALUE))
-        );
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\hospital_doctor.jpg")); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -130,6 +110,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton submitWorkRequestJButton;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables

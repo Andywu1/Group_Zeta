@@ -201,7 +201,7 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(evaluation.isEmpty()){
+        if(evaluation== null ||evaluation.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "You must input something!");
             return;
         }else {

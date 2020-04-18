@@ -212,7 +212,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         Date currentDate= new Date();
         
         
-        if(expectedDate==null||expectedDate.isEmpty()){
+        if(expectedDate== null ||expectedDate.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Expected Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -240,24 +240,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         hospitalWorkrequest.setStatus("Create");
         hospitalWorkrequest.setRequestDate(expectedTime);
                 
-//        Organization drorganization=null;
-//        Organization hospitalBackOfficerOrganization=null;
-//                
-//        for(Organization organization:hospital.getOrganizationDirectory().getOrganizationList()){
-//            if(organization instanceof DoctorOrganization){
-//                drorganization=organization;
-//                break;
-//            }
-//        }
-//        
-//        for(Organization organization:hospital.getOrganizationDirectory().getOrganizationList()){
-//            if(organization instanceof HospitalBackOfficerOrganization){
-//                hospitalBackOfficerOrganization=organization;
-//                break;
-//            }
-//        }
         hospitalWorkrequest.setFromEnterprise(hospital);
-        //hospital.getWorkQueue().getWorkRequestList().add(hospitalWorkrequest);
         useraccount.getWorkQueue().getWorkRequestList().add(hospitalWorkrequest);
         
         populateTable();

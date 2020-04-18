@@ -9,6 +9,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Ecosystem.EcoSystem;
 import Business.People.Person;
 import Business.Role.SysAdminRole;
+import Business.SystemUser.SystemUser;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -139,11 +140,11 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
                 createJButtonActionPerformed(evt);
             }
         });
-        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, -1, -1));
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setText("System User Registration");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, 23));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, 23));
 
         sysadminJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,7 +191,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
                 deleteButtonActionPerformed(evt);
             }
         });
-        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, -1));
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
 
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +199,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
                 updateButtonActionPerformed(evt);
             }
         });
-        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, -1));
+        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJtextActionPerformed
@@ -216,13 +217,18 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
             // TODO: DUIHUAKUANG here.
             JOptionPane.showMessageDialog(null, "Username Has Been Used! ");
             setTextFiledNull("");
+            usernameTextField.setEnabled(true);
             return;
         }
-         if (username== null ||username.isEmpty()){
+        if(name==null||name.trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please input the Name!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+         if (username== null ||username.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Username!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
-         if (password== null ||password.isEmpty()){
+         if (password== null ||password.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Password!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -235,10 +241,11 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         Person person=system.getPersonDirectory().createPerson(name);    
         system.getSystemUserDirectory().createUserAccount(username, password, person, new SysAdminRole());
         
-        JOptionPane.showMessageDialog(null, "The information is updated successfully!");
+        JOptionPane.showMessageDialog(null, "The information Create successfully!");
         setTextFiledNull("");
         populateTable();
         showPasswordCheckBox.setSelected(false);
+        usernameTextField.setEnabled(true);
         
     }//GEN-LAST:event_createJButtonActionPerformed
 
@@ -275,45 +282,53 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
                 }
             populateTable();
             setTextFiledNull("");
+            usernameTextField.setEnabled(true);
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         } 
-        
-        
         
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
         int selectedRow = sysadminJTable.getSelectedRow();
-        UserAccount userAccount = (UserAccount) sysadminJTable.getValueAt(selectedRow, 2);
+       
+        if(selectedRow <0)
+        {
+            JOptionPane.showMessageDialog(null, "Please selet a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
-        if (selectedRow >= 0) {
-            String name = nameTextField.getText();
-            if (name.equals("")) {
+        UserAccount userAccount = (UserAccount) sysadminJTable.getValueAt(selectedRow, 2);
+        String name = nameTextField.getText();
+        //String username = usernameTextField.getText();
+        String password = passwordField.getText();
+        
+            //String name = nameTextField.getText();
+          if (name==null||name.trim().isEmpty()) {   
                 JOptionPane.showMessageDialog(null, "Name is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             
-            String username = usernameTextField.getText();
             
-            if (username.equals("")) {
-                JOptionPane.showMessageDialog(null, "UserName is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
-                showPasswordCheckBox.setSelected(false);
-                return;
-            }
             
-            String password = passwordField.getText();
-            if (password.equals("")) {
+//            if (username==null||username.trim().isEmpty()) {
+//                JOptionPane.showMessageDialog(null, "UserName is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
+//                showPasswordCheckBox.setSelected(false);
+//                return;
+//            }
+            
+            
+            if (password==null||password.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Password is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
                 showPasswordCheckBox.setSelected(false);
                 return;
             }
             
             if(!passwordPatternCorrect()){
-            JOptionPane.showMessageDialog(null, "Password must follow the format");
-            showPasswordCheckBox.setSelected(false);
-            return;
+                JOptionPane.showMessageDialog(null, "Password must follow the format");
+                showPasswordCheckBox.setSelected(false);
+                return;
             }
 
             int dialogButton = JOptionPane.YES_NO_OPTION;
@@ -322,17 +337,18 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
 
             //Check duplicated user name      
              for (UserAccount u :system.getSystemUserDirectory().getUserAccountList() ){
-                 if(u.getUsername().equals(username)&&userAccount.getPassword().equals(password)&&userAccount.getPerson().getName().equals(name)){
+                 if(userAccount.getPassword().equals(password)&&userAccount.getPerson().getName().equals(name)){
                      JOptionPane.showMessageDialog(null, "No information is changed!");
                      showPasswordCheckBox.setSelected(false);
-                     setTextFiledNull("");   
+                     setTextFiledNull("");
+                     usernameTextField.setEnabled(true);
                      return;
                  }
              }
             
             //update infomation
             userAccount.getPerson().setName(name);
-            userAccount.setUsername(username);
+           // userAccount.setUsername(username);
             userAccount.setPassword(password);
              
             populateTable();
@@ -340,10 +356,10 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
             
             setTextFiledNull("");
             showPasswordCheckBox.setSelected(false);
+            usernameTextField.setEnabled(true);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Please selet a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
-        } 
+            
+      
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void sysadminJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sysadminJTableMouseClicked
@@ -354,7 +370,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
             nameTextField.setText(ua.getPerson().getName());
             usernameTextField.setText(ua.getUsername());
             passwordField.setText(ua.getPassword());
-            
+            usernameTextField.setEnabled(false);
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }

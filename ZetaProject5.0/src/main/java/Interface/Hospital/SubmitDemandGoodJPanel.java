@@ -212,8 +212,13 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
         System.out.println(name);
         String quantity=String.valueOf(quantityJTextField.getText());
  
-        if (name== null ||name.isEmpty()){
+        if (name== null ||name.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Demand Good!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+         if (quantity== null ||quantity.trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please input the Quantity!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -245,23 +250,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
         dg.setValue(q);
         
         workrequest.getDemandGoodDirectory().addDemandGood(dg);
-        
-//        workrequest.setSender(userAccount);
-//        workrequest.setStatus("Sent");
-//        
-//        Organization drOrganization=null;
-//        for(Organization organization:hospitalEnterprise.getOrganizationDirectory().getOrganizationList()){
-//            if(organization instanceof DoctorOrganization){
-//                drOrganization=organization;
-//                break;
-//            }
-//        }
-//        
-//        if(drOrganization!=null){
-//            drOrganization.getWorkQueue().getWorkRequestList().add(workrequest);
-//            userAccount.getWorkQueue().getWorkRequestList().add(workrequest);
-//        }
-//      
+     
         goodnameJTextField.setText("");
         quantityJTextField.setText("");
         populateTable();
@@ -282,14 +271,20 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
 
     private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
         // TODO add your handling code here:
+        int selectedRow = submitJTable.getSelectedRow();
+  
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            goodnameJTextField.setText("");
+            quantityJTextField.setText("");
+            return;
+        }
+        
         goodnameJTextField.setEditable(false);
         String goodname = goodnameJTextField.getText();
         String quantity = quantityJTextField.getText();
         
-        int selectedRow = submitJTable.getSelectedRow();
-        
-        if(selectedRow >= 0){ 
-            for(Map.Entry<String, DemandGood> entry : workrequest.getDemandGoodDirectory().getDemandGoodMap().entrySet()){
+        for(Map.Entry<String, DemandGood> entry : workrequest.getDemandGoodDirectory().getDemandGoodMap().entrySet()){
             if(goodname.equals(entry.getValue().getName())&&quantity.equals(entry.getValue().getValue()+"")){
                 JOptionPane.showMessageDialog(null,"This good's information is same!");
                // goodnameJTextField.setText("");
@@ -298,8 +293,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             }
         }
 
-        
-         if (goodname== null ||goodname.isEmpty()){
+        if (goodname== null ||goodname.isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input update information!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -320,43 +314,14 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
 
         String gn = (String) submitJTable.getValueAt(selectedRow, 1);
         
-             workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).setName(gn);
-             workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).setValue(Integer.parseInt(quantity));
-       
-            populateTable();
-            JOptionPane.showMessageDialog(null, "This good is updated successfully!");
-            goodnameJTextField.setText("");
-            quantityJTextField.setText("");
-        }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
-            goodnameJTextField.setText("");
-            quantityJTextField.setText("");
-        }
-        
-        
-        
-         
-//        int selectedRow = submitJTable.getSelectedRow();
-//        DemandGood dg = (DemandGood) submitJTable.getValueAt(selectedRow, 1);
-//      
-//        if (selectedRow >= 0) {         
-//            int dialogButton = JOptionPane.YES_NO_OPTION;
-//            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to update this information?", "Warning", dialogButton);
-//            if (dialogResult == JOptionPane.YES_OPTION) {
-//
-//            //update infomation
-//            
-//           dg.setName(goodname);
-//           dg.setName(quantity);
-//           
-//            populateTable();
-//            JOptionPane.showMessageDialog(null, "The information is updated successfully!");
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Please selet a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
-//        }  
-            
-        
+        workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).setName(gn);
+        workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).setValue(Integer.parseInt(quantity));
+
+        populateTable();
+        goodnameJTextField.setText("");
+        quantityJTextField.setText("");
+        JOptionPane.showMessageDialog(null, "This good is updated successfully!");
+              
     }//GEN-LAST:event_updateJButtonActionPerformed
 
     private void deleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteJButtonActionPerformed

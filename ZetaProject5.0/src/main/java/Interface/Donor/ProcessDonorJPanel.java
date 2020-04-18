@@ -208,7 +208,7 @@ public class ProcessDonorJPanel extends javax.swing.JPanel {
         
         DonorWorkRequest donorWorkRequest = new DonorWorkRequest();
         
-        if(money==null||money.isEmpty()){
+        if(money==null||money.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input amount of money!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -278,7 +278,7 @@ public class ProcessDonorJPanel extends javax.swing.JPanel {
                 return;
             }
 
-            if(money==null|| money.isEmpty()){
+            if(money==null|| money.trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "The money cannot be empty", "INFORMATION", JOptionPane.ERROR_MESSAGE);
             return;
         }

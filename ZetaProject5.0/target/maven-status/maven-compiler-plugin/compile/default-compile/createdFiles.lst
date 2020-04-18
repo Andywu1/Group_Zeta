@@ -46,6 +46,7 @@ Interface\Charity\DriverProcessJPanel$2.class
 Interface\Donor\DonorAdminWorkAreaJPanel$4.class
 Interface\Donor\DonorWorkAreaJPanel$2.class
 Interface\Charity\ProcessWorkRequestsJPanel$3.class
+Interface\SysAdminWorkArea\ManageEnterpriseAdminJPanel$9.class
 Interface\SysAdminWorkArea\ManageEnterpriseJPanel$6.class
 Interface\SysAdminWorkArea\ManageNetworkJPanel$2.class
 UserInterface\MainJFrame\MainJFrame$2.class
@@ -142,6 +143,7 @@ Interface\SysAdminWorkArea\ManageEnterpriseJPanel.class
 Interface\Donor\DonorAdminWorkAreaJPanel.class
 Interface\Charity\AssignWorkRequestsJPanel$1.class
 Interface\Charity\ProcessVolunteerJPanel$3.class
+Interface\Charity\CharityAdminWorkAreaJPanel$12.class
 Interface\Hospital\HospitalBackOfficeWorkAreaJPanel.class
 Interface\Hospital\SubmitDemandGoodJPanel$6.class
 Interface\SysAdminWorkArea\SystemAdminWorkAreaJPanel.class

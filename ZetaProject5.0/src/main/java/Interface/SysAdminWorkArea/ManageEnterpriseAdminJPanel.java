@@ -50,11 +50,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserAccountList()){
-                    Object[] row = new Object[3];
+                    Object[] row = new Object[4];
                     row[0] = enterprise;
                     row[1] = network.getName();
                     row[2] = userAccount;
-
+                    row[3] = enterprise.getEnterpriseType().getValue();
                     model.addRow(row);
                 }
             }
@@ -119,15 +119,23 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         enterpriseAdminJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Enterprise Name", "Network", "Username"
+                "Enterprise Name", "Network", "Username", "Enterprise Type"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         enterpriseAdminJTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 enterpriseAdminJTableMouseClicked(evt);
@@ -257,7 +265,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -269,7 +277,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 300, 60));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 260, 60));
 
         jLabel9.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -284,7 +292,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
+        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, -1));
 
         jLabel8.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -293,40 +301,45 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel8.setText("Manage Enterprise");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 180, 40));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 700));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteJButtonActionPerformed
         // TODO add your handling code here:
         int selectedRow = enterpriseAdminJTable.getSelectedRow();
        
-        if(selectedRow >= 0){
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            return;
+        }
+            
+        UserAccount useraccount= (UserAccount)enterpriseAdminJTable.getValueAt(selectedRow, 2);
+        
+        
+        int selectionButton = JOptionPane.YES_NO_OPTION;
+        int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
+        if(selectionResult == JOptionPane.YES_OPTION){
                // Enterprise enterprise = (Enterprise)enterpriseAdminJTable.getValueAt(selectedRow, 0);
-                UserAccount useraccount= (UserAccount)enterpriseAdminJTable.getValueAt(selectedRow, 2);
                 
-                
-                for(Network network :system.getNetworkList())
-                {
-                    for(Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
-                        for(UserAccount u :enterprise.getUserAccountDirectory().getUserAccountList()){
-                            if(u.getUsername().equals(useraccount.getUsername())){
-                            enterprise.getUserAccountDirectory().getUserAccountList().remove(useraccount);
-                            break;
-                            }      
-                        }     
-                    }                        
-                }
+            for(Network network :system.getNetworkList())
+            {
+                for(Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
+                    for(UserAccount u :enterprise.getUserAccountDirectory().getUserAccountList()){
+                        if(u.getUsername().equals(useraccount.getUsername())){
+                        enterprise.getUserAccountDirectory().getUserAccountList().remove(useraccount);
+                        break;
+                        }      
+                    }     
+                }                        
+            }
+            
             populateTable();
-            setTextFiledNull("");
+
             JOptionPane.showMessageDialog(null, "Delete Successfully!");
+            setTextFiledNull("");
+            usernameTextField.setEnabled(true);
             
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
-        }
     }//GEN-LAST:event_deleteJButtonActionPerformed
 
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
@@ -345,15 +358,15 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         String username = usernameTextField.getText();
         String password = String.valueOf(passwordField.getPassword());
         
-        if(name.equals("")||name==null){
+        if(name==null||name.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Name can't be empty!");
             return;
         }
-        if(username.equals("")||username==null){
+        if(username==null||username.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Username can't be empty!");
             return;
         }
-        if(password.equals("")||password==null){
+        if(password==null||password.trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Password can't be empty!");
             return;
         }
@@ -367,6 +380,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 for (UserAccount userAccount : newEnterprise.getUserAccountDirectory().getUserAccountList()) {
                     if(userAccount.getUsername().equals(username)){
                         JOptionPane.showMessageDialog(null, "This username is already registered!");
+                        usernameTextField.setEnabled(true);
                         return;
                     }
                 }
@@ -386,18 +400,19 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             if(enterprise.getEnterpriseType().toString().equals("Charity")){
                 enterprise.getUserAccountDirectory().createUserAccount(username, password, person, new EnterpriseAdminCharityRole()); 
             }else
-            {if(enterprise.getEnterpriseType().toString().equals("Donor")){
+            {
+                if(enterprise.getEnterpriseType().toString().equals("Donor")){
                     enterprise.getUserAccountDirectory().createUserAccount(username, password, person, new EnterpriseAdminDonorRole()); //AdminRole
                 }       
             }
         }
 
-        
         JOptionPane.showMessageDialog(null, "Enterprise Admin was created successfully!");
         populateTable();
         
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
+        usernameTextField.setEnabled(true);
     }//GEN-LAST:event_createJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -433,6 +448,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             nameTextField.setText(ua.getPerson().getName());
             usernameTextField.setText(ua.getUsername());
             passwordField.setText(ua.getPassword());
+            usernameTextField.setEnabled(false);
             
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
@@ -449,78 +465,79 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     }    
 
     private void UpdateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateJButtonActionPerformed
-        // TODO add your handling code here:
-       
-        String name = nameTextField.getText();
-        String username = usernameTextField.getText();
-        String password = String.valueOf(passwordField);
+        // TODO add your handling code here:     
+        int selectedRow = enterpriseAdminJTable.getSelectedRow();
          
-        if(name.equals("")||username.equals("")||password.equals("")){
-        JOptionPane.showMessageDialog(null, "The data cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
-        return;
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please selet a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;     
         }
         
-        int selectedRow = enterpriseAdminJTable.getSelectedRow();
         UserAccount userAccount = (UserAccount) enterpriseAdminJTable.getValueAt(selectedRow, 2);
         Enterprise enterprise = (Enterprise) enterpriseAdminJTable.getValueAt(selectedRow, 0);
-          
-        if (selectedRow >= 0) {
-            
-            if (name.equals("")) {
-                JOptionPane.showMessageDialog(null, "Name is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-            
-            
-            
-            if (username.equals("")) {
-                JOptionPane.showMessageDialog(null, "UserName is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
-                showPasswordCheckBox.setSelected(false);
-                return;
-            }
-            
-           
-            if (password.equals("")) {
-                JOptionPane.showMessageDialog(null, "Password is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
-                showPasswordCheckBox.setSelected(false);
-                return;
-            }
-            
-            if(!passwordPatternCorrect()){
+         
+        String name = nameTextField.getText();
+      //  String username = usernameTextField.getText();
+        String password = passwordField.getText();
+         
+//        if(name== null ||name.trim().isEmpty()||name== null ||username.trim().isEmpty()||username== null ||password.trim().isEmpty()){
+//            JOptionPane.showMessageDialog(null, "The data cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
+
+        if (name== null ||name.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Name is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+//            if (username.equals("")) {
+//                JOptionPane.showMessageDialog(null, "UserName is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
+//                showPasswordCheckBox.setSelected(false);
+//                return;
+//            }
+//            
+
+        if (password== null ||password.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Password is empty,please input", "Warning", JOptionPane.WARNING_MESSAGE);
+            showPasswordCheckBox.setSelected(false);
+            return;
+        }
+
+        if(!passwordPatternCorrect()){
             JOptionPane.showMessageDialog(null, "Password must follow the format");
             showPasswordCheckBox.setSelected(false);
             return;
-            }
+        }
 
-            int dialogButton = JOptionPane.YES_NO_OPTION;
-            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to update this information?", "Warning", dialogButton);
-            if (dialogResult == JOptionPane.YES_OPTION) {
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to update this information?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
 
 
-            //Check duplicated user name      
-             for (UserAccount u :enterprise.getUserAccountDirectory().getUserAccountList() ){
-                 if(u.getUsername().equals(username)&&userAccount.getPassword().equals(password)&&userAccount.getPerson().getName().equals(name)){
-                     JOptionPane.showMessageDialog(null, "No information is changed!");
-                     showPasswordCheckBox.setSelected(false);
-                     setTextFiledNull("");   
-                     return;
-                 }
+        //Check duplicated user name      
+         for (UserAccount u :enterprise.getUserAccountDirectory().getUserAccountList() ){
+             if(userAccount.getPassword().equals(password)&&userAccount.getPerson().getName().equals(name)){
+                 JOptionPane.showMessageDialog(null, "No information is changed!");
+                 showPasswordCheckBox.setSelected(false);
+                 setTextFiledNull("");
+                 usernameTextField.setEnabled(true);
+                 return;
              }
-            
-            //update infomation
-            userAccount.getPerson().setName(name);
-            userAccount.setUsername(username);
-            userAccount.setPassword(password);
-             
-            populateTable();
-            JOptionPane.showMessageDialog(null, "The information is updated successfully!");
-            setTextFiledNull("");
-            showPasswordCheckBox.setSelected(false);
-            showpassword.setVisible(false); 
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Please selet a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
-        }  
+         }
+
+        //update infomation
+        userAccount.getPerson().setName(name);
+        //userAccount.setUsername(username);
+        userAccount.setPassword(password);
+
+        populateTable();
+        JOptionPane.showMessageDialog(null, "The information is updated successfully!");
+        setTextFiledNull("");
+        showPasswordCheckBox.setSelected(false);
+        showpassword.setVisible(false); 
+        usernameTextField.setEnabled(true);
+        }
+  
     }//GEN-LAST:event_UpdateJButtonActionPerformed
 
     private void showPasswordCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordCheckBoxActionPerformed
