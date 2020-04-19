@@ -223,15 +223,16 @@ public class ProcessDonorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         int selectedRow = donorJTable.getSelectedRow();
-        Integer monid = (Integer) donorJTable.getValueAt(selectedRow, 0); 
-        String money = String.valueOf(moneyJTextField.getText());
+
         
         if(selectedRow<0){
             JOptionPane.showMessageDialog(null, "Please select a Row!!"); 
             return;
         } 
-        
+        Integer monid = (Integer) donorJTable.getValueAt(selectedRow, 0); 
+        String money = String.valueOf(moneyJTextField.getText());
         DonorWorkRequest drequest=null;
+        
         for(WorkRequest request:userAccount.getWorkQueue().getWorkRequestList()){
                 DonorWorkRequest newrequest=(DonorWorkRequest)request;
                 if(monid.equals(newrequest.getRequestId())){

@@ -52,17 +52,18 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
         submitWorkEvaluationJButton = new javax.swing.JButton();
         submitVolunteerJButton = new javax.swing.JButton();
         volunteerEvalJButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        valueLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 158, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 158, 26));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Back Office Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 360, 39));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 360, 39));
 
         AssignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         AssignJButton.setText("Assign Work Requests");
@@ -108,6 +109,10 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(volunteerEvalJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 230, 30));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel10.setText("Enterprise:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -154,6 +159,7 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton submitVolunteerJButton;
     private javax.swing.JButton submitWorkEvaluationJButton;

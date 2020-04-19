@@ -58,22 +58,22 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(221, 237, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Doctor Work Area");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 340, 39));
 
         valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 320, 60));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 80, 60));
 
-        submitWorkRequestJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        submitWorkRequestJButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         submitWorkRequestJButton.setText("Submit Work Requst");
         submitWorkRequestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitWorkRequestJButtonActionPerformed(evt);
             }
         });
-        add(submitWorkRequestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 233, -1));
+        add(submitWorkRequestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 233, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\hospital_doctor.jpg")); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));

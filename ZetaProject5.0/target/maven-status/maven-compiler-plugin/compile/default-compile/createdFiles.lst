@@ -5,6 +5,7 @@ Interface\Charity\DriverProcessJPanel$3.class
 Business\Organization\Organization.class
 Interface\Hospital\HospitalAdminWorkAreaJPanel$9.class
 Interface\Hospital\SubmitVolunteerEvalJPanel.class
+Interface\SysAdminWorkArea\ManageEnterpriseAdminJPanel$10.class
 Interface\Charity\AidWorkerWorkAreaJPanel$3.class
 Interface\Hospital\SubmitVolunteerEvalJPanel$1.class
 Business\Role\FundraiserRole.class
@@ -13,6 +14,7 @@ Business\UserAccount\UserAccount.class
 Interface\Hospital\HospitalBackOfficeWorkAreaJPanel$5.class
 Interface\Hospital\SubmitWorkRequestJPanel$1.class
 Interface\Charity\VolunteerWorkAreaJPanel$2.class
+Interface\SysAdminWorkArea\RegisterSysadminJPanel$8.class
 Interface\Hospital\ProcessWorkRequestJPanel.class
 Interface\Hospital\AssignWorkRequestJPanel$2.class
 Interface\SysAdminWorkArea\ManageEnterpriseAdminJPanel$4.class
@@ -91,6 +93,7 @@ Interface\Hospital\SubmitVolunteerJPanel$4.class
 Business\Role\DriverRole.class
 Business\WorkQueue\DonorWorkRequest.class
 Interface\SysAdminWorkArea\ManageEnterpriseJPanel$2.class
+Interface\SysAdminWorkArea\ManageNetworkJPanel$6.class
 Interface\Hospital\HospitalBackOfficeWorkAreaJPanel$3.class
 Business\WorkQueue\VolunteerWorkRequest.class
 Interface\Donor\DonorAdminWorkAreaJPanel$8.class

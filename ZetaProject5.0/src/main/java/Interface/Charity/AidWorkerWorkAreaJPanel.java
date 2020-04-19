@@ -45,17 +45,18 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
         viewWorkEvaluationJButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(180, 224, 201));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        valueLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 25, 158, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 158, 26));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Aid Worker Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 300, 39));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 300, 39));
 
         assignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         assignJButton.setText("Assign Work Requests");
@@ -64,7 +65,7 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 260, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 260, -1));
 
         processJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processJButton.setText("Process Work Requests");
@@ -73,7 +74,7 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 260, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 260, -1));
 
         viewWorkEvaluationJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         viewWorkEvaluationJButton.setText("View Demend Evaluation");
@@ -82,7 +83,11 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 viewWorkEvaluationJButtonActionPerformed(evt);
             }
         });
-        add(viewWorkEvaluationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 260, -1));
+        add(viewWorkEvaluationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 260, -1));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel10.setText("Enterprise:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -113,6 +118,7 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JButton processJButton;
     private javax.swing.JLabel valueLabel;
     private javax.swing.JButton viewWorkEvaluationJButton;

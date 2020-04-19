@@ -101,7 +101,13 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 500, 150));
 
         nameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        nameTextField.setToolTipText("");
         nameTextField.setBorder(null);
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextFieldActionPerformed(evt);
+            }
+        });
         add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 220, 30));
 
         createJButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -122,7 +128,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 deleteJButtonActionPerformed(evt);
             }
         });
-        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, -1, -1));
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, -1, -1));
 
         updateJButton.setBackground(new java.awt.Color(204, 204, 204));
         updateJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -132,7 +138,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 updateJButtonActionPerformed(evt);
             }
         });
-        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, -1, -1));
+        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 94, 170));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -178,7 +184,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 260, 60));
 
-        backJButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,6 +296,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             nameTextField.setText("");
         }
     }//GEN-LAST:event_updateJButtonActionPerformed
+
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

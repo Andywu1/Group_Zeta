@@ -130,7 +130,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setText("Selected Node:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 25, -1, -1));
 
-        lblSelectedNode.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblSelectedNode.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblSelectedNode.setText("<View_selected_node>");
         jPanel2.add(lblSelectedNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 

@@ -44,13 +44,14 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         assignJButton = new javax.swing.JButton();
         viewEvaluationJButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(194, 222, 164));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 158, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 180, 26));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Volunteer Work Area");
@@ -73,6 +74,10 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(viewEvaluationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 200, -1));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel10.setText("Enterprise:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -95,6 +100,7 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel valueLabel;
     private javax.swing.JButton viewEvaluationJButton;
     // End of variables declaration//GEN-END:variables

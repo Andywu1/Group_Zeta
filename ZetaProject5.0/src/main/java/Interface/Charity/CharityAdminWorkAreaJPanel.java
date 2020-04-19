@@ -132,11 +132,13 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        organizationPanel.setBackground(new java.awt.Color(180, 220, 233));
         organizationPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         organizationJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
                 {null, null},
                 {null, null},
                 {null, null}
@@ -153,14 +155,15 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        organizationJTable.setGridColor(new java.awt.Color(204, 204, 204));
         organizationJTable.setRowHeight(30);
         jScrollPane1.setViewportView(organizationJTable);
 
-        organizationPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 570, 120));
+        organizationPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 590, 150));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Organization Type");
-        organizationPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+        organizationPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
 
         organizationTypeComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         organizationTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -169,7 +172,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 organizationTypeComboBoxActionPerformed(evt);
             }
         });
-        organizationPanel.add(organizationTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 192, -1));
+        organizationPanel.add(organizationTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 192, -1));
 
         addJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addJButton.setText("Add Organization");
@@ -182,6 +185,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         TabbedPane.addTab("Manage Organization", organizationPanel);
 
+        jPanel3.setBackground(new java.awt.Color(180, 220, 233));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -203,6 +207,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        userTable.setGridColor(new java.awt.Color(204, 204, 204));
         userTable.setRowHeight(30);
         userTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -211,7 +216,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(userTable);
 
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 630, 120));
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 630, 140));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setText("Organization");
@@ -264,7 +269,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 deleteButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
+        jPanel3.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, -1, -1));
 
         updateButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         updateButton.setText("Update");
@@ -273,7 +278,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 updateButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
+        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Name");
@@ -287,6 +292,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel3.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 223, 30));
 
+        showPasswordCheckBox.setBackground(new java.awt.Color(180, 220, 233));
         showPasswordCheckBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         showPasswordCheckBox.setText("show password");
         showPasswordCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -304,13 +310,13 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setText("Charity Admin OverView");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Enterprise:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 45, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
-        valueLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 130, -1));
         add(showpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1051, 115, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

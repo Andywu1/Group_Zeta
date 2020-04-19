@@ -121,7 +121,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         showpassword = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 236, 179));
+        setBackground(new java.awt.Color(255, 238, 189));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TabbedPane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,6 +130,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        organizationPanel.setBackground(new java.awt.Color(252, 229, 205));
         organizationPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         organizationJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -144,10 +145,11 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
                 "Organization Id", "Organization Name"
             }
         ));
+        organizationJTable.setGridColor(new java.awt.Color(204, 204, 204));
         organizationJTable.setRowHeight(30);
         jScrollPane1.setViewportView(organizationJTable);
 
-        organizationPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 640, 150));
+        organizationPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 630, 150));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Organization Type");
@@ -173,6 +175,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         TabbedPane.addTab("Manage Organization", organizationPanel);
 
+        jPanel3.setBackground(new java.awt.Color(252, 229, 205));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -255,7 +258,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
                 deleteButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
+        jPanel3.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
 
         updateButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         updateButton.setText("Update");
@@ -264,7 +267,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
                 updateButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, -1, -1));
+        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Name");
@@ -278,6 +281,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel3.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 223, 30));
 
+        showPasswordCheckBox.setBackground(new java.awt.Color(252, 229, 205));
         showPasswordCheckBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         showPasswordCheckBox.setText("show password");
         showPasswordCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -285,7 +289,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
                 showPasswordCheckBoxActionPerformed(evt);
             }
         });
-        jPanel3.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 115, -1));
+        jPanel3.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 115, -1));
 
         TabbedPane.addTab("Manage User", jPanel3);
 
@@ -295,13 +299,13 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setText("Donor Admin OverView");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Enterprise:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 45, -1, -1));
 
-        valueLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 37, 130, 30));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 130, 30));
         add(showpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1051, 115, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

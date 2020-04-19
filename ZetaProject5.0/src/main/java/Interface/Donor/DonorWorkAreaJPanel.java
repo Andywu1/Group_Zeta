@@ -49,10 +49,10 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        backJButton = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         submitJButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -61,22 +61,13 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 236, 179));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        backJButton.setText("<<back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 100, -1));
-
-        valueLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 158, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 158, 26));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Donor Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 330, 39));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 330, 39));
 
         submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Donate Money");
@@ -86,16 +77,11 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 130, 31));
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        //Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel10.setText("Enterprise:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
         // TODO add your handling code here:
@@ -107,8 +93,8 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton submitJButton;

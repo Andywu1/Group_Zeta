@@ -81,6 +81,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         deleteButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
         showPasswordCheckBox = new javax.swing.JCheckBox();
+        backjButton = new javax.swing.JButton();
 
         departureJlabel1.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         departureJlabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -112,19 +113,19 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         departureJlabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        departureJlabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        departureJlabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         departureJlabel2.setText("Name:");
-        add(departureJlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 87, -1));
+        add(departureJlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 87, -1));
 
         departureJlabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        departureJlabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        departureJlabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         departureJlabel3.setText("User Name:");
         add(departureJlabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
 
         arrivalJlabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        arrivalJlabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        arrivalJlabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         arrivalJlabel1.setText("Password:");
-        add(arrivalJlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 92, -1));
+        add(arrivalJlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 92, -1));
 
         createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
@@ -139,7 +140,6 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         jLabel1.setText("System User Registration");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, 23));
 
-        sysadminJTable.setBackground(new java.awt.Color(240, 247, 232));
         sysadminJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         sysadminJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -160,6 +160,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        sysadminJTable.setGridColor(new java.awt.Color(204, 204, 204));
         sysadminJTable.setRowHeight(25);
         sysadminJTable.setSelectionBackground(new java.awt.Color(178, 213, 141));
         sysadminJTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -208,6 +209,15 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
             }
         });
         add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
+
+        backjButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        backjButton.setText("<<Back");
+        backjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backjButtonActionPerformed(evt);
+            }
+        });
+        add(backjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJtextActionPerformed
@@ -375,6 +385,16 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_sysadminJTableMouseClicked
 
+    private void backjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButtonActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        //Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);   
+        dB4OUtil.storeSystem(system);
+    }//GEN-LAST:event_backjButtonActionPerformed
+
     private boolean passwordPatternCorrect(){
         Pattern p = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
         Matcher m = p.matcher(passwordField.getText());
@@ -392,6 +412,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel arrivalJlabel;
     private javax.swing.JLabel arrivalJlabel1;
+    private javax.swing.JButton backjButton;
     private javax.swing.JButton createJButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel departureJlabel;

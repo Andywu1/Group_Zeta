@@ -152,7 +152,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Enterprise");
@@ -165,7 +165,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 170, 30));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 170, 30));
 
         enterpriseComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         enterpriseComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -174,7 +174,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 170, 30));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 170, 30));
 
         createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
@@ -260,13 +260,18 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 700));
 
         nameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 251, 30));
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextFieldActionPerformed(evt);
+            }
+        });
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 170, 30));
 
         usernameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 251, 30));
+        add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 170, 30));
 
         passwordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 251, 30));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 170, 30));
 
         showPasswordCheckBox.setBackground(new java.awt.Color(136, 195, 234));
         showPasswordCheckBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -276,19 +281,19 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 showPasswordCheckBoxActionPerformed(evt);
             }
         });
-        add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 540, -1, -1));
+        add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 550, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, -1, 20));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setText("Username");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setText("Password");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, -1, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, -1, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteJButtonActionPerformed
@@ -535,6 +540,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             passwordField.setEchoChar('*');
         }
     }//GEN-LAST:event_showPasswordCheckBoxActionPerformed
+
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextFieldActionPerformed
       
     private void setTextFiledNull(String str){
         nameTextField.setText(str);

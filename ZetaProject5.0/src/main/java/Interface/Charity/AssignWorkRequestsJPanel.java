@@ -176,6 +176,7 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
                 "Id", "RequestDate", "Status", "Results"
             }
         ));
+        firstWorkRequestJTable.setGridColor(new java.awt.Color(204, 204, 204));
         firstWorkRequestJTable.setRowHeight(30);
         jScrollPane2.setViewportView(firstWorkRequestJTable);
 

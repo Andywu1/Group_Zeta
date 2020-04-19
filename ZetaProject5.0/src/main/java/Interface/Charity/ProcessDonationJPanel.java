@@ -108,7 +108,7 @@ public class ProcessDonationJPanel extends javax.swing.JPanel {
             donationJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 102, 750, 160));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 102, 750, 140));
 
         processJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processJButton.setText("Process");
@@ -117,12 +117,14 @@ public class ProcessDonationJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
-        add(sumJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 44, 28, 21));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        sumJLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        add(sumJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 140, 21));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Sum of Donation:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 334, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 190, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

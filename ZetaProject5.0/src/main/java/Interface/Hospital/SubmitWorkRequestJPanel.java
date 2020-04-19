@@ -85,7 +85,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         addDemandGoodJButton = new javax.swing.JButton();
         DeleteJButton = new javax.swing.JButton();
         submitJButton = new javax.swing.JButton();
-        dateJTextField = new com.toedter.calendar.JDateChooser();
+        dateChooser = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,6 +101,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 "Id", "Expected Date", "Handler", "Status", "Result"
             }
         ));
+        workRequestJTable.setGridColor(new java.awt.Color(204, 204, 204));
         workRequestJTable.setRowHeight(30);
         jScrollPane1.setViewportView(workRequestJTable);
 
@@ -117,7 +118,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Request Expected Date");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
 
         createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
@@ -126,7 +127,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 createJButtonActionPerformed(evt);
             }
         });
-        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
         addDemandGoodJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addDemandGoodJButton.setText("Add Demand Good");
@@ -135,7 +136,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 addDemandGoodJButtonActionPerformed(evt);
             }
         });
-        add(addDemandGoodJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
+        add(addDemandGoodJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
 
         DeleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         DeleteJButton.setText("Delete");
@@ -144,7 +145,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 DeleteJButtonActionPerformed(evt);
             }
         });
-        add(DeleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+        add(DeleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, -1));
 
         submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
@@ -153,8 +154,8 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, -1, -1));
-        add(dateJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 240, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+        add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 240, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
@@ -176,7 +177,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         Date currentDate= new Date();
 ////        
 ////        
-        if(dateJTextField.getDate()== null ||dateJTextField.toString().trim().isEmpty()){
+        if(dateChooser.getDate()== null ||dateChooser.toString().trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Expected Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -195,7 +196,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
 //            return;
 //        }
 //        
-        if(dateJTextField.getDate().compareTo(currentDate)<0){
+        if(dateChooser.getDate().compareTo(currentDate)<0){
             JOptionPane.showMessageDialog(null, "Please don't input the expected date before today", "Error", JOptionPane.ERROR_MESSAGE);
             //dateJTextField.setText("");
             return;
@@ -203,13 +204,13 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         //expectedTime=sdf.parse(expectedDate);
         hospitalWorkrequest.setSender(useraccount);
         hospitalWorkrequest.setStatus("Create");
-        hospitalWorkrequest.setRequestDate(dateJTextField.getDate());
+        hospitalWorkrequest.setRequestDate(dateChooser.getDate());
                 
         hospitalWorkrequest.setFromEnterprise(hospital);
         useraccount.getWorkQueue().getWorkRequestList().add(hospitalWorkrequest);
         
         populateTable();
-        //dateJTextField.setText("");
+        dateChooser.setCalendar(null);
         JOptionPane.showMessageDialog(null, "Create Successfully!");
         
     }//GEN-LAST:event_createJButtonActionPerformed
@@ -283,7 +284,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                     }
                 }
                 populateTable();
-               // dateJTextField.setText("");
+                dateChooser.setCalendar(null);
                 
             }
 
@@ -335,7 +336,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
          }
         
        populateTable();
-      // dateJTextField.setText("");
+       dateChooser.setCalendar(null);
     }//GEN-LAST:event_submitJButtonActionPerformed
 
 
@@ -344,7 +345,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addDemandGoodJButton;
     private javax.swing.JButton backJButton;
     private javax.swing.JButton createJButton;
-    private com.toedter.calendar.JDateChooser dateJTextField;
+    private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton submitJButton;
