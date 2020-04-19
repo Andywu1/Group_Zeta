@@ -19,7 +19,9 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author kathe
@@ -63,7 +65,7 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 continue;
             }
             VolunteerWorkRequest vrequest=(VolunteerWorkRequest)request;
-            Object[] row=new Object[7];
+            Object[] row=new Object[8];
             row[0]=vrequest.getRequestId();
             row[1]=vrequest.getSender().getPerson().getName();
             row[2]=vrequest.getToEnterprise()==null?null:vrequest.getToEnterprise().getName();
@@ -71,7 +73,11 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             row[4]=vrequest.getVolunteer().getServerCount();
             row[5]=vrequest.getStatus();
             row[6]=vrequest;
-            
+            String pattern = "yyyy-MM-dd";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+            String date = simpleDateFormat.format(vrequest.getRequestDate());
+            row[7]=date;
+                      
             model.addRow(row);
         }
     }
@@ -96,25 +102,41 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         updateJButton = new javax.swing.JButton();
         deleteJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(192, 233, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
+        submitVolunteerJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitVolunteerJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Sender", "Charity", "CleanerNum", "ServerNum", "Status", "Results"
+                "Id", "Sender", "Charity", "CleanerNum", "ServerNum", "Status", "Results", "Expected Date"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        submitVolunteerJTable.setRowHeight(30);
         submitVolunteerJTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 submitVolunteerJTableMouseClicked(evt);
@@ -122,101 +144,71 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(submitVolunteerJTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 720, 170));
+
+        submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 91, -1));
 
+        charityJComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         charityJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         charityJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 charityJComboBoxActionPerformed(evt);
             }
         });
+        add(charityJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 180, 30));
 
+        cleanerJTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        add(cleanerJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 180, 30));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Cleaner");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 91, -1));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Server");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 91, 26));
 
+        serverJTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        serverJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serverJTextFieldActionPerformed(evt);
+            }
+        });
+        add(serverJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 180, 30));
+
+        updateJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         updateJButton.setText("Update");
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateJButtonActionPerformed(evt);
             }
         });
+        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, -1));
 
+        deleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         deleteJButton.setText("Delete");
         deleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteJButtonActionPerformed(evt);
             }
         });
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 540, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Charity Name");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backJButton)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel3)))
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cleanerJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(serverJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(charityJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(updateJButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteJButton)))
-                .addContainerGap(214, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(backJButton)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(charityJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cleanerJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(serverJTextField)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitJButton)
-                    .addComponent(updateJButton)
-                    .addComponent(deleteJButton))
-                .addGap(62, 62, 62))
-        );
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel4.setText("Expected Date");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, -1, -1));
+        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 180, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
@@ -283,6 +275,18 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             }
         }
         //volunteerWorkRequest.setStatus("Send");
+        Date currentDate= new Date();
+
+        if(jDateChooser1.getDate()== null ||jDateChooser1.toString().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please input the Expected Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(jDateChooser1.getDate().compareTo(currentDate)<0){
+            JOptionPane.showMessageDialog(null, "Please don't input the expected date before today", "Error", JOptionPane.ERROR_MESSAGE);
+            //dateJTextField.setText("");
+            return;
+        }
+        volunteerWorkRequest.setRequestDate(jDateChooser1.getDate());
         volunteerWorkRequest.setSender(useraccount);
         volunteerWorkRequest.setStatus("Send");
         volunteerWorkRequest.setFromEnterprise(hospital);
@@ -291,8 +295,11 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         hospital.getWorkQueue().getWorkRequestList().add(volunteerWorkRequest);
         
         serverJTextField.setText("");
-        cleanerJTextField.setText("");
+        cleanerJTextField.setText("");  
+        jDateChooser1.setCalendar(null);
+        
         populateTable();
+         JOptionPane.showMessageDialog(null, "This request is submitted successfully!"); 
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -308,16 +315,16 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         int selectedRow = submitVolunteerJTable.getSelectedRow();
-        Integer vw = (Integer) submitVolunteerJTable.getValueAt(selectedRow, 0);
-
-
+        
         if(selectedRow<0){
            JOptionPane.showMessageDialog(null, "Please select a Row!!"); 
            cleanerJTextField.setText("");
            serverJTextField.setText(""); 
            return;
         } 
-             
+
+        Integer vw = (Integer) submitVolunteerJTable.getValueAt(selectedRow, 0);    
+        
         String cleaner =  cleanerJTextField.getText();
         String server = serverJTextField.getText(); 
             
@@ -375,20 +382,40 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 break;
             }
          } 
-         
-//      
-//         
-         System.out.println(vrequest.getVolunteer().getCleanerCount());
            
+        if(!vrequest.getStatus().equals("Send")){
+            JOptionPane.showMessageDialog(null, "This request is processing or completed,you cannot modify it!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            cleanerJTextField.setText("");
+            serverJTextField.setText("");
+            jDateChooser1.setCalendar(null);
+            return;       
+         }
+            
           if(vrequest!=null){
                 vrequest.getVolunteer().setCleanerCount(Integer.parseInt(cleaner));
                 vrequest.getVolunteer().setServerCount(Integer.parseInt(server));   
             }
-            
+        
+         Date currentDate= new Date();
+       
+        if(jDateChooser1.getDate()== null ||jDateChooser1.toString().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please input the Expected Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(jDateChooser1.getDate().compareTo(currentDate)<0){
+            JOptionPane.showMessageDialog(null, "Please don't input the expected date before today", "Error", JOptionPane.ERROR_MESSAGE);
+            //dateJTextField.setText("");
+            return;
+        }
+        
+        vrequest.setRequestDate(jDateChooser1.getDate());
+
+        
             populateTable();  
             JOptionPane.showMessageDialog(null, "Updated Successfully!"); 
             cleanerJTextField.setText("");
-            serverJTextField.setText("");        
+            serverJTextField.setText("");
+            jDateChooser1.setCalendar(null);
         
     }//GEN-LAST:event_updateJButtonActionPerformed
 
@@ -400,6 +427,7 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
               
               cleanerJTextField.setText(vw.getVolunteer().getCleanerCount()+"");
               serverJTextField.setText(vw.getVolunteer().getServerCount()+"");
+              jDateChooser1.setDate(vw.getRequestDate());
           }   
     }//GEN-LAST:event_submitVolunteerJTableMouseClicked
 
@@ -425,6 +453,14 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                     break;
                 }
             }
+
+            if(!vrequest.getStatus().equals("Send")){
+                JOptionPane.showMessageDialog(null, "This request is processing or completed,you cannot delete it!", "CREATE", JOptionPane.ERROR_MESSAGE);
+                cleanerJTextField.setText("");
+                serverJTextField.setText("");
+                jDateChooser1.setCalendar(null);
+                return;       
+             }
             
             vrequest.getToEnterprise().getWorkQueue().getWorkRequestList().remove(vrequest);
             useraccount.getWorkQueue().getWorkRequestList().remove(vrequest);
@@ -434,12 +470,16 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             populateTable(); 
             cleanerJTextField.setText("");
             serverJTextField.setText("");
+            jDateChooser1.setCalendar(null);
             JOptionPane.showMessageDialog(null, "Delete Successfully!");   
             }   
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Row!!");  
             cleanerJTextField.setText("");
-            serverJTextField.setText("");   
+            serverJTextField.setText("");
+            jDateChooser1.setCalendar(null);
+            
+            
         }
         
     }//GEN-LAST:event_deleteJButtonActionPerformed
@@ -448,15 +488,21 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_charityJComboBoxActionPerformed
 
+    private void serverJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serverJTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JComboBox<String> charityJComboBox;
     private javax.swing.JTextField cleanerJTextField;
     private javax.swing.JButton deleteJButton;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField serverJTextField;
     private javax.swing.JButton submitJButton;

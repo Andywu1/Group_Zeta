@@ -26,7 +26,7 @@ public class EnterpriseAdminDonorRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network mynetWork, EcoSystem system) {
-          return new DonorAdminWorkAreaJPanel(userProcessContainer,account,enterprise);  
+          return new DonorAdminWorkAreaJPanel(userProcessContainer,account,enterprise,system);  
  
         
     }   

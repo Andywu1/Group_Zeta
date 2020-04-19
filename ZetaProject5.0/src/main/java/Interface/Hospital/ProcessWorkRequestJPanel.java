@@ -94,6 +94,10 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         enterpriseJComboBox = new javax.swing.JComboBox<>();
         submitJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(192, 233, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        processWorkRequestJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processWorkRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -105,76 +109,46 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 "Id", "Sender", "Charity", "Result", "Status"
             }
         ));
+        processWorkRequestJTable.setRowHeight(30);
         jScrollPane1.setViewportView(processWorkRequestJTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 710, 150));
+
+        viewJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         viewJButton.setText("View DemandGood");
         viewJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewJButtonActionPerformed(evt);
             }
         });
+        add(viewJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, 30));
 
+        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
+        enterpriseJComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseJComboBoxActionPerformed(evt);
             }
         });
+        add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 160, 30));
 
+        submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(backJButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(viewJButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(submitJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                        .addComponent(enterpriseJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(142, 142, 142))))
-                        .addContainerGap(38, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backJButton)
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(viewJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(submitJButton)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 82, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewJButtonActionPerformed
@@ -230,7 +204,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         HospitalWorkRequest hospitalWorkRequest=(HospitalWorkRequest)processWorkRequestJTable.getValueAt(selectedRow, 3);
         
         if(hospitalWorkRequest.getToEnterprise()!=null){
-            JOptionPane.showMessageDialog(this, "You can't send toEnterprise twice!", "INFORMATION", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "You can't send to charity twice!", "INFORMATION", JOptionPane.ERROR_MESSAGE);
             return;
         }
         

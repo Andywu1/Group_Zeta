@@ -71,19 +71,25 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
         evaluationJTextField = new javax.swing.JTextField();
         submitJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(192, 233, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Submit Volunteer Evaluation");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, 39));
 
+        volunteerJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         volunteerJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
@@ -92,69 +98,31 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
                 "Id", "Charity", "Evaluation", "Status", "Result"
             }
         ));
+        volunteerJTable.setRowHeight(30);
         jScrollPane1.setViewportView(volunteerJTable);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Evaluation:");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 650, 120));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setText("Evaluation:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, 27));
+
+        evaluationJTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         evaluationJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 evaluationJTextFieldActionPerformed(evt);
             }
         });
+        add(evaluationJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 250, 30));
 
+        submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 15, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(backJButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(jLabel2)
-                                .addGap(46, 46, 46)
-                                .addComponent(evaluationJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(154, 154, 154)
-                                .addComponent(submitJButton)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(backJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(evaluationJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(submitJButton)
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -198,6 +166,7 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
         
         if(!vrequest.getStatus().equals("Completed")){
             JOptionPane.showMessageDialog(null, "Your work request hasn't been completed!");
+            evaluationJTextField.setText("");
             return;
         }
         
@@ -211,6 +180,7 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
                 return;
             }
             JOptionPane.showMessageDialog(null, "Submit Successfully!");
+            evaluationJTextField.setText("");
         }
         
          vrequest.setEvaluation(evaluation);

@@ -25,7 +25,7 @@ public class EnterpriseAdminCharityRole extends Role {
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network mynetWork, EcoSystem system) {
-          return new CharityAdminWorkAreaJPanel(userProcessContainer,account,enterprise);  
+          return new CharityAdminWorkAreaJPanel(userProcessContainer,account,enterprise,system);  
 // 
 //        
    

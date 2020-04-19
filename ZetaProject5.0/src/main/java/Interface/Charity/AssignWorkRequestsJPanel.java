@@ -81,6 +81,12 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
             if(request.getReceiver()!=null){
                 continue;
             }
+            if(request.getClass().getName().contains("VolunteerWorkRequest")){
+                continue;
+            }else if(request.getClass().getName().contains("DonorWorkRequest")){
+                continue;
+            }
+            
             if(request.getRequestDate().before(begin)||first.getReceiver()!=null){
                     begin=request.getRequestDate();
                     first=request;
@@ -90,7 +96,7 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "All work requests have been processed!", "INFORMATION", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+    
         Object[]row=new Object[4];
         row[0]=first.getRequestId();
         String pattern = "MM-dd-yyyy";
@@ -122,13 +128,19 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
         assignJButton = new javax.swing.JButton();
         viewJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(180, 224, 201));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
+        assignJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         assignJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -141,15 +153,21 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
             }
         ));
         assignJTable.setEnabled(false);
+        assignJTable.setRowHeight(30);
         jScrollPane1.setViewportView(assignJTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 730, 150));
+
+        chooseAssignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         chooseAssignJButton.setText("First Request To Assign");
         chooseAssignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chooseAssignJButtonActionPerformed(evt);
             }
         });
+        add(chooseAssignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
 
+        firstWorkRequestJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         firstWorkRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
@@ -158,65 +176,32 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
                 "Id", "RequestDate", "Status", "Results"
             }
         ));
+        firstWorkRequestJTable.setRowHeight(30);
         jScrollPane2.setViewportView(firstWorkRequestJTable);
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 720, 80));
+
+        assignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         assignJButton.setText("Assign to me");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, -1, -1));
 
+        viewJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         viewJButton.setText("View Demand Good");
         viewJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backJButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(chooseAssignJButton)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(viewJButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(assignJButton))))
-                .addGap(0, 75, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(backJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(chooseAssignJButton)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewJButton)
-                    .addComponent(assignJButton))
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
+        add(viewJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void chooseAssignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseAssignJButtonActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here: 
        populateFirstProcessTable();
     }//GEN-LAST:event_chooseAssignJButtonActionPerformed
 

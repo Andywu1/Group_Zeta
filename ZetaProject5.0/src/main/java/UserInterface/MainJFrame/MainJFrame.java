@@ -36,7 +36,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system=dB4OUtil.retrieveSystem();
-         //this.setSize(1200, 700);    
+      //  this.setSize(1200, 700);    
     }
 
     /**
@@ -57,6 +57,9 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton = new javax.swing.JButton();
         registerJButton = new javax.swing.JButton();
         showPasswordCheckBox = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,35 +73,39 @@ public class MainJFrame extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(rightJPanel);
         rightJPanel.getAccessibleContext().setAccessibleName("");
 
-        leftJPanel.setBackground(new java.awt.Color(0, 151, 170));
-        leftJPanel.setPreferredSize(new java.awt.Dimension(300, 850));
+        leftJPanel.setBackground(new java.awt.Color(136, 195, 234));
+        leftJPanel.setPreferredSize(new java.awt.Dimension(200, 700));
         leftJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userNameJTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
+        userNameJTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        userNameJTextField.setBorder(null);
         userNameJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userNameJTextFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 160, 70));
+        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 140, 30));
 
-        passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
+        passwordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        passwordField.setBorder(null);
         passwordField.setPreferredSize(new java.awt.Dimension(15, 40));
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 60));
+        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 140, 30));
 
+        loginJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 80, 20));
+        leftJPanel.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 90, 30));
 
+        logoutJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         logoutJButton.setText("Logout");
         logoutJButton.setEnabled(false);
         logoutJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,26 +113,38 @@ public class MainJFrame extends javax.swing.JFrame {
                 logoutJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(logoutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 97, -1));
+        leftJPanel.add(logoutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 97, -1));
 
+        registerJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         registerJButton.setText("Register");
         registerJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerJButtonActionPerformed(evt);
             }
         });
-        leftJPanel.add(registerJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 511, 97, -1));
+        leftJPanel.add(registerJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 97, -1));
 
-        showPasswordCheckBox.setBackground(new java.awt.Color(255, 255, 255));
-        showPasswordCheckBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        showPasswordCheckBox.setForeground(new java.awt.Color(102, 102, 102));
+        showPasswordCheckBox.setBackground(new java.awt.Color(136, 195, 234));
+        showPasswordCheckBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         showPasswordCheckBox.setText("show password");
         showPasswordCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showPasswordCheckBoxActionPerformed(evt);
             }
         });
-        leftJPanel.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        leftJPanel.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setText("User Name");
+        leftJPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setText("Password");
+        leftJPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setText("*Do not have an account?");
+        leftJPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, -1, -1));
 
         jSplitPane1.setLeftComponent(leftJPanel);
 
@@ -133,11 +152,11 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1400, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -308,6 +327,9 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordField.setText("");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel leftJPanel;
     private javax.swing.JButton loginJButton;

@@ -36,7 +36,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminWorkAreaJPanel
      */
-    public CharityAdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount userAccount,Enterprise enterprise) {
+    public CharityAdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount userAccount,Enterprise enterprise,EcoSystem system) {
         initComponents();
         
         allowedTypes = new HashMap<>();      
@@ -52,7 +52,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
        this.userProcessContainer=userProcessContainer;
        this.userAccount=userAccount;
        this.enterprise=enterprise;
-      // this.system = system;
+       this.system = system;
         
       //Tab1:Manage Organization
         populateOrganizationTable();
@@ -123,12 +123,18 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         showpassword = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(209, 231, 233));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         TabbedPane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 TabbedPaneMousePressed(evt);
             }
         });
 
+        organizationPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        organizationJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -147,59 +153,38 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        organizationJTable.setRowHeight(30);
         jScrollPane1.setViewportView(organizationJTable);
 
-        jLabel2.setText("Organization Type");
+        organizationPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 570, 120));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setText("Organization Type");
+        organizationPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+
+        organizationTypeComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         organizationTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationTypeComboBoxActionPerformed(evt);
             }
         });
+        organizationPanel.add(organizationTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 192, -1));
 
+        addJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addJButton.setText("Add Organization");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout organizationPanelLayout = new javax.swing.GroupLayout(organizationPanel);
-        organizationPanel.setLayout(organizationPanelLayout);
-        organizationPanelLayout.setHorizontalGroup(
-            organizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(organizationPanelLayout.createSequentialGroup()
-                .addGroup(organizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(organizationPanelLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(organizationPanelLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel2)
-                        .addGap(103, 103, 103)
-                        .addComponent(organizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(organizationPanelLayout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(addJButton)))
-                .addContainerGap(251, Short.MAX_VALUE))
-        );
-        organizationPanelLayout.setVerticalGroup(
-            organizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(organizationPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(organizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(organizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(addJButton)
-                .addContainerGap(189, Short.MAX_VALUE))
-        );
+        organizationPanel.add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
 
         TabbedPane.addTab("Manage Organization", organizationPanel);
 
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -218,6 +203,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        userTable.setRowHeight(30);
         userTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userTableMouseClicked(evt);
@@ -225,178 +211,107 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(userTable);
 
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 630, 120));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setText("Organization");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setText("Role");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("User Name");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setText("Password");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
 
+        organizationComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         organizationComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationComboBoxActionPerformed(evt);
             }
         });
+        jPanel3.add(organizationComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 223, 30));
 
+        roleComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         roleComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(roleComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 223, 30));
 
+        usernameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel3.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 223, 30));
+
+        createButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createButtonActionPerformed(evt);
             }
         });
+        jPanel3.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
 
+        passwordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel3.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 223, 30));
+
+        deleteButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
             }
         });
+        jPanel3.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
 
+        updateButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
             }
         });
+        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Name");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
 
+        nameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextFieldActionPerformed(evt);
             }
         });
+        jPanel3.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 223, 30));
 
+        showPasswordCheckBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         showPasswordCheckBox.setText("show password");
         showPasswordCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showPasswordCheckBoxActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel3))
-                        .addGap(110, 110, 110)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(organizationComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nameTextField)
-                            .addComponent(usernameTextField)
-                            .addComponent(roleComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(passwordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(showPasswordCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(createButton)
-                        .addGap(70, 70, 70)
-                        .addComponent(deleteButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateButton)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(organizationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(roleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showPasswordCheckBox))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(createButton)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteButton)
-                        .addComponent(updateButton)))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        jPanel3.add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 115, -1));
 
         TabbedPane.addTab("Manage User", jPanel3);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        add(TabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 800, 550));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Charity Admin OverView");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Enterprise:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 45, -1, -1));
 
+        valueLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         valueLabel.setText("<value>");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
-                .addComponent(showpassword)
-                .addGap(43, 43, 43))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(246, 246, 246)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(valueLabel))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(showpassword))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, -1));
+        add(showpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1051, 115, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -515,23 +430,30 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
           
-               for(Organization newOrg: enterprise.getOrganizationDirectory().getOrganizationList())
-               {
-                   for (UserAccount ua : newOrg.getUserAccountDirectory().getUserAccountList())
-                   {
-                       if(ua.getUsername().equals(username)){
-                           JOptionPane.showMessageDialog(null, "This username is already registered!");
-                           return;
-                    }
-                }    
-               }
+//               for(Organization newOrg: enterprise.getOrganizationDirectory().getOrganizationList())
+//               {
+//                   for (UserAccount ua : newOrg.getUserAccountDirectory().getUserAccountList())
+//                   {
+//                       if(ua.getUsername().equals(username)){
+//                           JOptionPane.showMessageDialog(null, "This username is already registered!");
+//                           return;
+//                    }
+//                }    
+//               }
+//               
+        if (!system.usernameAvailable(username)) {
+            JOptionPane.showMessageDialog(null, "This username already exists!");
+            setTextFiledNull("");
+            usernameTextField.setEnabled(true);
+            return;
+        }
 
         Organization organization = (Organization) organizationComboBox.getSelectedItem();
         Person person =  organization.getPersonDirectory().createPerson(name);
         Role role = (Role) roleComboBox.getSelectedItem();
 
         organization.getUserAccountDirectory().createUserAccount(username, password, person, role);
-        
+            
         populateUserTable();  
         JOptionPane.showMessageDialog(null, "User is created successfully!");
         setTextFiledNull("");
@@ -601,6 +523,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 nameTextField.setText("");
                 usernameTextField.setText("");
                 passwordField.setText("");
+                usernameTextField.setEnabled(true);
                 
             }
         }else{
@@ -690,6 +613,9 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void TabbedPaneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabbedPaneMousePressed
         // TODO add your handling code here:
          populateOrganizationComboBox();
+         setTextFiledNull("");
+         usernameTextField.setEnabled(true);
+         userTable.clearSelection();
     }//GEN-LAST:event_TabbedPaneMousePressed
 
       private void setTextFiledNull(String str){

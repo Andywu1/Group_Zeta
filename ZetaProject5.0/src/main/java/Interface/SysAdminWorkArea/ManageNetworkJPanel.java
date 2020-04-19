@@ -67,16 +67,17 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(136, 195, 234));
         setPreferredSize(new java.awt.Dimension(1200, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Manage Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, -1, -1));
 
-        networkJTable.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        networkJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -97,54 +98,54 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(networkJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 470, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 500, 150));
 
-        nameTextField.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        nameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Microsoft Tai Le", 1, 14))); // NOI18N
-        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 460, 70));
+        nameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        nameTextField.setBorder(null);
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 220, 30));
 
         createJButton.setBackground(new java.awt.Color(204, 204, 204));
-        createJButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createJButtonActionPerformed(evt);
             }
         });
-        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, -1, -1));
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, -1, -1));
 
         deleteJButton.setBackground(new java.awt.Color(204, 204, 204));
-        deleteJButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         deleteJButton.setText("Delete");
         deleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteJButtonActionPerformed(evt);
             }
         });
-        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, -1, -1));
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, -1, -1));
 
         updateJButton.setBackground(new java.awt.Color(204, 204, 204));
-        updateJButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         updateJButton.setText("Update");
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateJButtonActionPerformed(evt);
             }
         });
-        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, -1, -1));
+        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 94, 170));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Manage Enterprise Admin");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 240, -1));
 
         jLabel4.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Manage Enterprise");
@@ -153,7 +154,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(0, 105, 186));
 
         jLabel3.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Manage Network");
@@ -177,10 +178,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 260, 60));
 
-        backJButton.setBackground(new java.awt.Color(0, 105, 186));
-        backJButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        backJButton.setForeground(new java.awt.Color(204, 204, 204));
-        backJButton.setText("Back");
+        backJButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
@@ -189,6 +188,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 100, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 700));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel5.setText("Name");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -297,6 +300,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

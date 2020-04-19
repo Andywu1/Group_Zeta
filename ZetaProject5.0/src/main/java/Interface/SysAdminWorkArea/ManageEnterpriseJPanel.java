@@ -94,6 +94,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(136, 195, 234));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        enterpriseJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -105,6 +106,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 "Name", "Network", "Type"
             }
         ));
+        enterpriseJTable.setRowHeight(30);
         enterpriseJTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 enterpriseJTableMouseClicked(evt);
@@ -112,67 +114,77 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 375, 104));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 560, 150));
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 110, -1));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Enterprise Type");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, -1, -1));
 
+        networkComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         networkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 111, -1));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 170, 30));
 
+        enterpriseTypeComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         enterpriseTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterpriseTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseTypeComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 111, -1));
-        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 111, -1));
+        add(enterpriseTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, 170, 30));
 
+        nameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 170, 30));
+
+        createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createJButtonActionPerformed(evt);
             }
         });
-        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, -1, -1));
 
+        deleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         deleteJButton.setText("Delete");
         deleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteJButtonActionPerformed(evt);
             }
         });
-        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Manage Enterprise");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
+        updateJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         updateJButton.setText("Update Name");
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateJButtonActionPerformed(evt);
             }
         });
-        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
+        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(0, 94, 170));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Manage Enterprise Admin");
@@ -181,7 +193,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(0, 105, 186));
 
         jLabel8.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Manage Enterprise");
@@ -206,13 +218,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 260, 60));
 
         jLabel9.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Manage Network");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 160, 40));
 
-        backJButton.setText("< Back");
+        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);

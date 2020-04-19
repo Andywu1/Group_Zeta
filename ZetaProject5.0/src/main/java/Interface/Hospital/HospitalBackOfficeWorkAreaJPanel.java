@@ -46,7 +46,6 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         valueLabel = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         AssignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
@@ -54,98 +53,61 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
         submitVolunteerJButton = new javax.swing.JButton();
         volunteerEvalJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(192, 233, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        valueLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         valueLabel.setText("<value>");
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 158, 26));
 
-        backJButton.setText("<<back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Back Office Work Area");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 360, 39));
 
+        AssignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         AssignJButton.setText("Assign Work Requests");
         AssignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AssignJButtonActionPerformed(evt);
             }
         });
+        add(AssignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 230, 30));
 
+        processJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processJButton.setText("Process Work Requests");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);
             }
         });
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 230, 30));
 
+        submitWorkEvaluationJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitWorkEvaluationJButton.setText("Submit Work Evaluation");
         submitWorkEvaluationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitWorkEvaluationJButtonActionPerformed(evt);
             }
         });
+        add(submitWorkEvaluationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 230, 30));
 
+        submitVolunteerJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitVolunteerJButton.setText("Submit Volunteer Request");
         submitVolunteerJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitVolunteerJButtonActionPerformed(evt);
             }
         });
+        add(submitVolunteerJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 230, 30));
 
+        volunteerEvalJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         volunteerEvalJButton.setText("Submit Volunteer Evaluation");
         volunteerEvalJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volunteerEvalJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJButton)
-                        .addGap(34, 34, 34)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(volunteerEvalJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(submitVolunteerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(submitWorkEvaluationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(processJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AssignJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(backJButton)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(AssignJButton)
-                .addGap(18, 18, 18)
-                .addComponent(processJButton)
-                .addGap(18, 18, 18)
-                .addComponent(submitWorkEvaluationJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(submitVolunteerJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(volunteerEvalJButton)
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
+        add(volunteerEvalJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -163,15 +125,6 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_AssignJButtonActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        //Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);   
-    }//GEN-LAST:event_backJButtonActionPerformed
 
     private void submitWorkEvaluationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitWorkEvaluationJButtonActionPerformed
         // TODO add your handling code here:
@@ -200,7 +153,6 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignJButton;
-    private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton submitVolunteerJButton;

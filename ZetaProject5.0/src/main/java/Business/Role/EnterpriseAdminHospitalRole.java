@@ -25,7 +25,7 @@ public class EnterpriseAdminHospitalRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network mynetWork, EcoSystem system) {
-          return new HospitalAdminWorkAreaJPanel(userProcessContainer,account,enterprise);  
+          return new HospitalAdminWorkAreaJPanel(userProcessContainer,account,enterprise, system);  
  
         
     }   

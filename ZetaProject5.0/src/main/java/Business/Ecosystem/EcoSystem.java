@@ -5,6 +5,7 @@
  */
 package Business.Ecosystem;
 
+import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.People.PersonDirectory;
@@ -98,7 +99,16 @@ public class EcoSystem {
           return false;
       }
       for(Network network:networkList){
-          
+          for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (!e.getUserAccountDirectory().isUsernameAvailable(userName)) {
+                return false;
+            }
+            for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+                if (!o.getUserAccountDirectory().isUsernameAvailable(userName)) {
+                    return false;
+                }
+            }
+          }
       }
       return true;
     }

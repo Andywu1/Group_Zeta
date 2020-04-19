@@ -81,12 +81,16 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         backJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        dateJTextField = new javax.swing.JTextField();
         createJButton = new javax.swing.JButton();
         addDemandGoodJButton = new javax.swing.JButton();
         DeleteJButton = new javax.swing.JButton();
         submitJButton = new javax.swing.JButton();
+        dateJTextField = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(192, 233, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        workRequestJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -94,157 +98,118 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id", "ExpectedDay", "Handler", "Status", "Result"
+                "Id", "Expected Date", "Handler", "Status", "Result"
             }
         ));
+        workRequestJTable.setRowHeight(30);
         jScrollPane1.setViewportView(workRequestJTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 720, 140));
+
+        backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Request Expected Date");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
 
-        dateJTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateJTextFieldActionPerformed(evt);
-            }
-        });
-
+        createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createJButtonActionPerformed(evt);
             }
         });
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
 
+        addDemandGoodJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addDemandGoodJButton.setText("Add Demand Good");
         addDemandGoodJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addDemandGoodJButtonActionPerformed(evt);
             }
         });
+        add(addDemandGoodJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
+        DeleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         DeleteJButton.setText("Delete");
         DeleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteJButtonActionPerformed(evt);
             }
         });
+        add(DeleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
 
+        submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(backJButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel3)
-                                .addGap(38, 38, 38)
-                                .addComponent(dateJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(createJButton)
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(submitJButton)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(DeleteJButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(addDemandGoodJButton))))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(398, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backJButton)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(dateJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createJButton)
-                    .addComponent(DeleteJButton)
-                    .addComponent(addDemandGoodJButton))
-                .addGap(28, 28, 28)
-                .addComponent(submitJButton)
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, -1, -1));
+        add(dateJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 240, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dateJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateJTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateJTextFieldActionPerformed
 
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
         // TODO add your handling code here:
-        String expectedDate=dateJTextField.getText();
-        String[] arrOfStr = expectedDate.split("-",3);
-        for(String a: arrOfStr){
-            System.out.println(a);
-        }
-        
+//        String expectedDate=dateJTextField.getDateFormatString();
+//       
+//        
+////        String[] arrOfStr = expectedDate.split("-",3);
+////        for(String a: arrOfStr){
+////            System.out.println(a);
+////        }
+//        String pattern = "yyyy-MM-dd";
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+//        String date = simpleDateFormat.format(expectedDate);
         
         HospitalWorkRequest hospitalWorkrequest=new HospitalWorkRequest();
-        Date expectedTime;
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+//        Date expectedTime;
+//        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date currentDate= new Date();
-        
-        
-        if(expectedDate== null ||expectedDate.trim().isEmpty()){
+////        
+////        
+        if(dateJTextField.getDate()== null ||dateJTextField.toString().trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please input the Expected Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        if(Integer.parseInt(arrOfStr[1])>12 || Integer.parseInt(arrOfStr[2])>31 || expectedDate.length()<10){
-            JOptionPane.showMessageDialog(null, "Please input the correct Month and Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
-            dateJTextField.setText("");
-            return;
-        }
-        
-        try{
-            expectedTime=sdf.parse(expectedDate);
-        }catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Please input the correct expected date:yyyy-mm-dd", "Search", JOptionPane.ERROR_MESSAGE);
-            dateJTextField.setText("");
-            return;
-        }
-        
-        if(expectedTime.compareTo(currentDate)<0){
+//        
+//        if(Integer.parseInt(arrOfStr[1])>12 || Integer.parseInt(arrOfStr[2])>31 || expectedDate.length()<10){
+//            JOptionPane.showMessageDialog(null, "Please input the correct Month and Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
+//           // dateJTextField.setText("");
+//            return;
+//        }
+//        
+//        try{
+//            expectedTime=sdf.parse(expectedDate);
+//        }catch (ParseException ex) {
+//            JOptionPane.showMessageDialog(null, "Please input the correct expected date:yyyy-mm-dd", "Search", JOptionPane.ERROR_MESSAGE);
+//           // dateJTextField.setText("");
+//            return;
+//        }
+//        
+        if(dateJTextField.getDate().compareTo(currentDate)<0){
             JOptionPane.showMessageDialog(null, "Please don't input the expected date before today", "Error", JOptionPane.ERROR_MESSAGE);
-            dateJTextField.setText("");
+            //dateJTextField.setText("");
             return;
         }
+        //expectedTime=sdf.parse(expectedDate);
         hospitalWorkrequest.setSender(useraccount);
         hospitalWorkrequest.setStatus("Create");
-        hospitalWorkrequest.setRequestDate(expectedTime);
+        hospitalWorkrequest.setRequestDate(dateJTextField.getDate());
                 
         hospitalWorkrequest.setFromEnterprise(hospital);
         useraccount.getWorkQueue().getWorkRequestList().add(hospitalWorkrequest);
         
         populateTable();
-        dateJTextField.setText("");
+        //dateJTextField.setText("");
         JOptionPane.showMessageDialog(null, "Create Successfully!");
         
     }//GEN-LAST:event_createJButtonActionPerformed
@@ -318,7 +283,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
                     }
                 }
                 populateTable();
-                dateJTextField.setText("");
+               // dateJTextField.setText("");
                 
             }
 
@@ -370,7 +335,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
          }
         
        populateTable();
-       dateJTextField.setText("");
+      // dateJTextField.setText("");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
 
@@ -379,7 +344,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addDemandGoodJButton;
     private javax.swing.JButton backJButton;
     private javax.swing.JButton createJButton;
-    private javax.swing.JTextField dateJTextField;
+    private com.toedter.calendar.JDateChooser dateJTextField;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton submitJButton;
