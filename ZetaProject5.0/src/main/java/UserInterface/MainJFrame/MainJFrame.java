@@ -17,8 +17,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Interface.SysAdminWorkArea.RegisterSysadminJPanel;
-import Interface.SysAdminWorkArea.RegisterSysadminJPanel;
-import java.awt.Dimension;
+import Interface.SysAdminWorkArea.LogoutJPanel;
 
 /**
  *
@@ -84,7 +83,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 userNameJTextFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 140, 30));
+        leftJPanel.add(userNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 120, 30));
 
         passwordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         passwordField.setBorder(null);
@@ -94,7 +93,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 passwordFieldActionPerformed(evt);
             }
         });
-        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 140, 30));
+        leftJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 120, 30));
 
         loginJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         loginJButton.setText("Login");
@@ -190,9 +189,13 @@ public class MainJFrame extends javax.swing.JFrame {
         showPasswordCheckBox.setEnabled(true);
         registerJButton.setEnabled(true);
 
-        rightJPanel.removeAll();
+        rightJPanel.removeAll();    
         JPanel blankJP = new JPanel();
         rightJPanel.add("blank", blankJP);
+        
+//        LogoutJPanel logoutJPanel=new LogoutJPanel(rightJPanel);
+//        rightJPanel.add("LogoutJPanel",logoutJPanel);
+        
         CardLayout crdLyt = (CardLayout) rightJPanel.getLayout();
         crdLyt.next(rightJPanel);
         dB4OUtil.storeSystem(system);

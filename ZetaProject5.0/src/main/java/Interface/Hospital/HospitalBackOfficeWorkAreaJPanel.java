@@ -59,7 +59,7 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
 
         valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 158, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 220, 26));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Back Office Work Area");

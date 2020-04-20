@@ -138,7 +138,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("System User Registration");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, 23));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, 23));
 
         sysadminJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         sysadminJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -171,7 +171,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(sysadminJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 660, 130));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 660, 130));
 
         passwordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 161, 30));
@@ -389,7 +389,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
-        //Component component = componentArray[componentArray.length - 1];
+ //       Component component = componentArray[componentArray.length - 1];
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);   
         dB4OUtil.storeSystem(system);

@@ -42,7 +42,6 @@ Business\Organization\AidWorkerOrganization.class
 Interface\SysAdminWorkArea\ManageEnterpriseJPanel$5.class
 Interface\Charity\DriverProcessJPanel$2.class
 Interface\Donor\DonorAdminWorkAreaJPanel$4.class
-Interface\Donor\DonorWorkAreaJPanel$2.class
 Interface\Charity\ProcessWorkRequestsJPanel$3.class
 Interface\SysAdminWorkArea\ManageEnterpriseAdminJPanel$9.class
 Interface\SysAdminWorkArea\ManageEnterpriseJPanel$6.class
@@ -64,6 +63,7 @@ Business\Role\HospitalBackOfficerRole.class
 Interface\SysAdminWorkArea\RegisterSysadminJPanel$4.class
 Business\WorkQueue\Donor.class
 Interface\Charity\DonationWorkAreaJPanel$1.class
+Interface\SysAdminWorkArea\LogoutJPanel.class
 Interface\Charity\ViewDemandGoodJPanel.class
 Business\Enterprise\EnterpriseDirectory.class
 Interface\Donor\DonorAdminWorkAreaJPanel$6.class
