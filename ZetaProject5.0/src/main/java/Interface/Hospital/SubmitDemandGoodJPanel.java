@@ -211,7 +211,8 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             if(name==null?entry.getValue().getName()==null:name.equalsIgnoreCase(entry.getValue().getName())){
                 JOptionPane.showMessageDialog(null,"The good already exists!");
                 goodnameJTextField.setText("");
-                quantityJTextField.setText("");               
+                quantityJTextField.setText("");     
+                goodnameJTextField.setEnabled(true);
                 return;
             }
         }
@@ -222,10 +223,11 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
         
         workrequest.getDemandGoodDirectory().addDemandGood(dg);
      
-        goodnameJTextField.setText("");
-        quantityJTextField.setText("");
         populateTable();
         JOptionPane.showMessageDialog(null,"The good submit sucessfully!");
+        goodnameJTextField.setText("");
+        quantityJTextField.setText("");
+        goodnameJTextField.setEnabled(true);
         
     }//GEN-LAST:event_submitJButtonActionPerformed
 
@@ -251,7 +253,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             return;
         }
         
-        goodnameJTextField.setEditable(false);
+        //goodnameJTextField.setEnabled(false);
         String goodname = goodnameJTextField.getText();
         String quantity = quantityJTextField.getText();
         
@@ -264,10 +266,10 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             }
         }
 
-        if (goodname== null ||goodname.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please input update information!", "CREATE", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+//        if (goodname== null ||goodname.isEmpty()){
+//            JOptionPane.showMessageDialog(null, "Please input update information!", "CREATE", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
         
         Integer q;
         try {
@@ -289,9 +291,10 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
         workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).setValue(Integer.parseInt(quantity));
 
         populateTable();
+        JOptionPane.showMessageDialog(null, "This good is updated successfully!");
         goodnameJTextField.setText("");
         quantityJTextField.setText("");
-        JOptionPane.showMessageDialog(null, "This good is updated successfully!");
+        goodnameJTextField.setEnabled(true);
               
     }//GEN-LAST:event_updateJButtonActionPerformed
 
@@ -299,7 +302,12 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = submitJTable.getSelectedRow();
        
-        if(selectedRow >= 0){
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");  
+            goodnameJTextField.setText("");
+            quantityJTextField.setText("");   
+        }
+        
             int selectionButton = JOptionPane.YES_NO_OPTION;
             int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
             
@@ -312,8 +320,8 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             if(gn==null?entry.getValue().getName()==null:gn.equalsIgnoreCase(entry.getValue().getName())){
                
                 
-                workrequest.getDemandGoodDirectory().getDemandGoodMap().remove(entry.getKey());     
-              break;  
+            workrequest.getDemandGoodDirectory().getDemandGoodMap().remove(entry.getKey());     
+            break;  
             }
         }
 
@@ -321,13 +329,10 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             goodnameJTextField.setText("");
             quantityJTextField.setText("");
             JOptionPane.showMessageDialog(null, "Delete Successfully!");
+            goodnameJTextField.setEnabled(true);
             }
-        }else
-        {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");  
-            goodnameJTextField.setText("");
-            quantityJTextField.setText("");   
-        }
+
+        
     }//GEN-LAST:event_deleteJButtonActionPerformed
 
     private void submitJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitJTableMouseClicked
@@ -338,6 +343,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
              String gn = (String) submitJTable.getValueAt(selectedRow, 1);
              goodnameJTextField.setText(workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).getName());
              quantityJTextField.setText(workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).getValue()+"");
+             goodnameJTextField.setEnabled(false);
           }
              
         

@@ -36,9 +36,9 @@ public class LogoutJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Jokerman", 0, 48)); // NOI18N
-        jLabel1.setText("Thank for using this system!");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Jokerman", 0, 36)); // NOI18N
+        jLabel1.setText("Thank for using charity foundation system!");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\Coronabeer.gif")); // NOI18N
         jLabel2.setToolTipText("");

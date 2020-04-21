@@ -83,7 +83,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         updateButton = new javax.swing.JButton();
         showPasswordCheckBox = new javax.swing.JCheckBox();
         backjButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         departureJlabel1.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         departureJlabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -223,8 +223,8 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         });
         add(backjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\WeChat Image_20200420191947.png")); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, 300, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\register systemadministor1.png")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJtextActionPerformed
@@ -431,7 +431,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel departureJlabel3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJtext;
     private javax.swing.JTextField nameTextField;

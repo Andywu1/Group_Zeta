@@ -65,12 +65,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setAutoscrolls(true);
 
+        rightJPanel.setBackground(new java.awt.Color(255, 255, 204));
         rightJPanel.setToolTipText("");
         rightJPanel.setAutoscrolls(true);
         rightJPanel.setDoubleBuffered(false);
         rightJPanel.setName(""); // NOI18N
         rightJPanel.setLayout(new java.awt.CardLayout());
 
+        jLabel4.setBackground(new java.awt.Color(247, 238, 189));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\stayhome2.gif")); // NOI18N
         jLabel4.setToolTipText("");
