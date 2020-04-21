@@ -46,17 +46,20 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
         processJButton = new javax.swing.JButton();
         viewWorkEvaluationJButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(180, 224, 201));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 158, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 158, 26));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Aid Worker Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 300, 39));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 300, 39));
 
         assignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         assignJButton.setText("Assign Work Requests");
@@ -65,7 +68,7 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 260, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 260, -1));
 
         processJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processJButton.setText("Process Work Requests");
@@ -74,7 +77,7 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 260, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 260, -1));
 
         viewWorkEvaluationJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         viewWorkEvaluationJButton.setText("View Demend Evaluation");
@@ -83,11 +86,20 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 viewWorkEvaluationJButtonActionPerformed(evt);
             }
         });
-        add(viewWorkEvaluationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 260, -1));
+        add(viewWorkEvaluationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 260, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Enterprise:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\COVIDweb_02_bed.png")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 210, 210));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\COVIDweb_04_CallDoc.png")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 210, 210));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\COVIDweb_05_mask.png")); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -119,6 +131,9 @@ public class AidWorkerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton processJButton;
     private javax.swing.JLabel valueLabel;
     private javax.swing.JButton viewWorkEvaluationJButton;

@@ -111,6 +111,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(136, 195, 234));
         setMinimumSize(new java.awt.Dimension(800, 671));
@@ -146,17 +147,17 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 580, 150));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         jLabel6.setText("Manage Enterprise Admin");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Enterprise");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, -1, -1));
 
         networkComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         networkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -165,7 +166,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 170, 30));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 170, 30));
 
         enterpriseComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         enterpriseComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -174,7 +175,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 enterpriseComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 170, 30));
+        add(enterpriseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 170, 30));
 
         createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
@@ -183,7 +184,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 createJButtonActionPerformed(evt);
             }
         });
-        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, -1, -1));
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 610, -1, -1));
 
         deleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         deleteJButton.setText("Delete");
@@ -192,7 +193,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 deleteJButtonActionPerformed(evt);
             }
         });
-        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, -1, -1));
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, -1, -1));
         add(showpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 40, 40));
 
         UpdateJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -202,7 +203,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 UpdateJButtonActionPerformed(evt);
             }
         });
-        add(UpdateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 610, -1, -1));
+        add(UpdateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 610, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(0, 94, 170));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -248,7 +249,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, -1));
+        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, 30));
 
         jLabel8.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
         jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -265,13 +266,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 nameTextFieldActionPerformed(evt);
             }
         });
-        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 170, 30));
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 430, 170, 30));
 
         usernameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 170, 30));
+        add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, 170, 30));
 
         passwordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 170, 30));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 540, 170, 30));
 
         showPasswordCheckBox.setBackground(new java.awt.Color(136, 195, 234));
         showPasswordCheckBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -281,19 +282,22 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 showPasswordCheckBoxActionPerformed(evt);
             }
         });
-        add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 550, -1, -1));
+        add(showPasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 540, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, -1, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, 20));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("Username");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, -1, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, 20));
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setText("Password");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, -1, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, -1, 20));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\register.png")); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 540, 560));
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteJButtonActionPerformed
@@ -330,6 +334,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Delete Successfully!");
             setTextFiledNull("");
             usernameTextField.setEnabled(true);
+            passwordField.setEchoChar('*');
             
             }
     }//GEN-LAST:event_deleteJButtonActionPerformed
@@ -383,21 +388,18 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     
         Person person = enterprise.getPersonDirectory().createPerson(name);
         
-        if(enterprise.getEnterpriseType().toString().equals("Hospital"))
-        {
+        if(enterprise.getEnterpriseType().toString().equals("Hospital")){
             //HopsitalAdminRole
            enterprise.getUserAccountDirectory().createUserAccount(username, password, person, new EnterpriseAdminHospitalRole()); 
-        }else{
-            //CharityAdminRole
-            if(enterprise.getEnterpriseType().toString().equals("Charity")){
+        }else if(enterprise.getEnterpriseType().toString().equals("Charity")){
+            
                 enterprise.getUserAccountDirectory().createUserAccount(username, password, person, new EnterpriseAdminCharityRole()); 
-            }else
-            {
-                if(enterprise.getEnterpriseType().toString().equals("Donor")){
+        }else if(enterprise.getEnterpriseType().toString().equals("Donor")){
+                
                     enterprise.getUserAccountDirectory().createUserAccount(username, password, person, new EnterpriseAdminDonorRole()); //AdminRole
-                }       
-            }
-        }
+        }       
+            
+        
 
         JOptionPane.showMessageDialog(null, "Enterprise Admin was created successfully!");
         populateTable();
@@ -405,6 +407,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
     }//GEN-LAST:event_createJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -528,6 +531,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         showPasswordCheckBox.setSelected(false);
         showpassword.setVisible(false); 
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
         }
   
     }//GEN-LAST:event_UpdateJButtonActionPerformed
@@ -559,6 +563,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JTable enterpriseAdminJTable;
     private javax.swing.JComboBox enterpriseComboBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

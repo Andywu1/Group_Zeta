@@ -49,6 +49,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         rightJPanel = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         leftJPanel = new javax.swing.JPanel();
         userNameJTextField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
@@ -69,6 +70,12 @@ public class MainJFrame extends javax.swing.JFrame {
         rightJPanel.setDoubleBuffered(false);
         rightJPanel.setName(""); // NOI18N
         rightJPanel.setLayout(new java.awt.CardLayout());
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\stayhome2.gif")); // NOI18N
+        jLabel4.setToolTipText("");
+        rightJPanel.add(jLabel4, "card2");
+
         jSplitPane1.setRightComponent(rightJPanel);
         rightJPanel.getAccessibleContext().setAccessibleName("");
 
@@ -185,16 +192,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
         userNameJTextField.setText("");
         passwordField.setText("");
+        passwordField.setEchoChar('*');
         showPasswordCheckBox.setSelected(false);
         showPasswordCheckBox.setEnabled(true);
         registerJButton.setEnabled(true);
 
         rightJPanel.removeAll();    
-        JPanel blankJP = new JPanel();
-        rightJPanel.add("blank", blankJP);
+//        JPanel blankJP = new JPanel();
+//        rightJPanel.add("blank", blankJP);
         
-//        LogoutJPanel logoutJPanel=new LogoutJPanel(rightJPanel);
-//        rightJPanel.add("LogoutJPanel",logoutJPanel);
+        LogoutJPanel logoutJPanel=new LogoutJPanel(rightJPanel);
+        rightJPanel.add("LogoutJPanel",logoutJPanel);
         
         CardLayout crdLyt = (CardLayout) rightJPanel.getLayout();
         crdLyt.next(rightJPanel);
@@ -333,6 +341,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel leftJPanel;
     private javax.swing.JButton loginJButton;

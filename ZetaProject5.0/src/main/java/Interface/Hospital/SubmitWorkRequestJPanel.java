@@ -86,6 +86,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         DeleteJButton = new javax.swing.JButton();
         submitJButton = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,7 +106,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         workRequestJTable.setRowHeight(30);
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 720, 140));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 720, 140));
 
         backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<back");
@@ -156,6 +157,10 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
         });
         add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
         add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 240, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\calendar.png")); // NOI18N
+        jLabel1.setToolTipText("");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 380, 400));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
@@ -346,6 +351,7 @@ public class SubmitWorkRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backJButton;
     private javax.swing.JButton createJButton;
     private com.toedter.calendar.JDateChooser dateChooser;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton submitJButton;

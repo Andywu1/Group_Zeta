@@ -482,6 +482,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
     }//GEN-LAST:event_createButtonActionPerformed
 
      private boolean passwordPatternCorrect(){
@@ -551,6 +552,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         usernameTextField.setText("");
         passwordField.setText("");
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
         
         }
   
@@ -624,6 +626,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
         } 
 
         

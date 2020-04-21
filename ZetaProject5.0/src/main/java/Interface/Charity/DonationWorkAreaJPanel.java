@@ -44,6 +44,7 @@ public class DonationWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         manageJButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(209, 231, 233));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,6 +69,9 @@ public class DonationWorkAreaJPanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Enterprise:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\money.gif")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 230, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageJButtonActionPerformed
@@ -82,6 +86,7 @@ public class DonationWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageJButton;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables

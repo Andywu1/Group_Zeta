@@ -104,6 +104,8 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -144,7 +146,7 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(submitVolunteerJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 720, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 720, 120));
 
         submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
@@ -153,7 +155,7 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 91, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, 91, -1));
 
         charityJComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         charityJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -162,18 +164,20 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 charityJComboBoxActionPerformed(evt);
             }
         });
-        add(charityJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 180, 30));
+        add(charityJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 180, 30));
 
         cleanerJTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(cleanerJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 180, 30));
+        add(cleanerJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 180, 30));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cleaner");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 91, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 91, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Server");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 91, 26));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 91, 26));
 
         serverJTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         serverJTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +185,7 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 serverJTextFieldActionPerformed(evt);
             }
         });
-        add(serverJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 180, 30));
+        add(serverJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, 180, 30));
 
         updateJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         updateJButton.setText("Update");
@@ -190,7 +194,7 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 updateJButtonActionPerformed(evt);
             }
         });
-        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, -1));
+        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, -1, -1));
 
         deleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         deleteJButton.setText("Delete");
@@ -199,16 +203,23 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 deleteJButtonActionPerformed(evt);
             }
         });
-        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 540, -1, -1));
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Charity Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Expected Date");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, -1, -1));
-        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 180, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, -1, -1));
+        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 180, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 630, -1, -1));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\volunteer_2.jpg")); // NOI18N
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
@@ -260,11 +271,22 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             return;
         }
         
+        Date currentDate= new Date();
+
+        if(jDateChooser1.getDate()== null ||jDateChooser1.toString().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please input the Expected Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
+        if(jDateChooser1.getDate().compareTo(currentDate)<0){
+            JOptionPane.showMessageDialog(null, "Please don't input the expected date before today", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+           
         volunteerWorkRequest.getVolunteer().setCleanerCount(Integer.parseInt(cleaner));
         volunteerWorkRequest.getVolunteer().setServerCount(Integer.parseInt(server));;
         
-         Enterprise toEnterprise=null;
+        Enterprise toEnterprise=null;
         
         for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
             if(charityJComboBox.getSelectedItem().toString().equals(enterprise.toString())){
@@ -274,18 +296,7 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 
             }
         }
-        //volunteerWorkRequest.setStatus("Send");
-        Date currentDate= new Date();
 
-        if(jDateChooser1.getDate()== null ||jDateChooser1.toString().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please input the Expected Date!", "CREATE", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if(jDateChooser1.getDate().compareTo(currentDate)<0){
-            JOptionPane.showMessageDialog(null, "Please don't input the expected date before today", "Error", JOptionPane.ERROR_MESSAGE);
-            //dateJTextField.setText("");
-            return;
-        }
         volunteerWorkRequest.setRequestDate(jDateChooser1.getDate());
         volunteerWorkRequest.setSender(useraccount);
         volunteerWorkRequest.setStatus("Send");
@@ -461,11 +472,15 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
                 jDateChooser1.setCalendar(null);
                 return;       
              }
+            System.out.println("Delete at " + vrequest.getToEnterprise().getName());
             
             vrequest.getToEnterprise().getWorkQueue().getWorkRequestList().remove(vrequest);
             useraccount.getWorkQueue().getWorkRequestList().remove(vrequest);
+            System.out.println("Delete at " + useraccount.getUsername());
+            
             hospital.getWorkQueue().getWorkRequestList().remove(vrequest);
-           
+           System.out.println("Delete at " + hospital.getName());
+            
            // 
             populateTable(); 
             cleanerJTextField.setText("");
@@ -503,6 +518,8 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField serverJTextField;
     private javax.swing.JButton submitJButton;

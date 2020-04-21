@@ -93,6 +93,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageNetwork = new javax.swing.JButton();
         btnManageEnterprise = new javax.swing.JButton();
         btnManageAdmin = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -118,7 +119,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 398, Short.MAX_VALUE))
+                .addGap(0, 490, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(jPanel1);
@@ -141,7 +142,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNetworkActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 260, -1));
+        jPanel2.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 260, -1));
 
         btnManageEnterprise.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnManageEnterprise.setText("Manage Enterprise");
@@ -150,7 +151,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageEnterpriseActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 260, -1));
+        jPanel2.add(btnManageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 260, -1));
 
         btnManageAdmin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnManageAdmin.setText("Manage Enterprise Admin");
@@ -159,7 +160,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 260, -1));
+        jPanel2.add(btnManageAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 260, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\systemWorkArea.png")); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 520, 420));
 
         jSplitPane.setRightComponent(jPanel2);
 
@@ -201,6 +205,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageEnterprise;
     private javax.swing.JButton btnManageNetwork;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -121,7 +121,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         showpassword = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 238, 189));
+        setBackground(new java.awt.Color(255, 255, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TabbedPane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,7 +130,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        organizationPanel.setBackground(new java.awt.Color(252, 229, 205));
+        organizationPanel.setBackground(new java.awt.Color(255, 255, 153));
         organizationPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         organizationJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -175,7 +175,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         TabbedPane.addTab("Manage Organization", organizationPanel);
 
-        jPanel3.setBackground(new java.awt.Color(252, 229, 205));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -281,7 +281,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel3.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 223, 30));
 
-        showPasswordCheckBox.setBackground(new java.awt.Color(252, 229, 205));
+        showPasswordCheckBox.setBackground(new java.awt.Color(255, 255, 153));
         showPasswordCheckBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         showPasswordCheckBox.setText("show password");
         showPasswordCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -442,6 +442,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
     }//GEN-LAST:event_createButtonActionPerformed
 
      private boolean passwordPatternCorrect(){
@@ -506,6 +507,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
                 usernameTextField.setText("");
                 passwordField.setText("");
                 usernameTextField.setEnabled(true);
+                passwordField.setEchoChar('*');
                 
             }
         }else{
@@ -583,6 +585,7 @@ public class DonorAdminWorkAreaJPanel extends javax.swing.JPanel {
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
         }
 
     }//GEN-LAST:event_updateButtonActionPerformed

@@ -93,6 +93,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         enterpriseJComboBox = new javax.swing.JComboBox<>();
         submitJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,7 +113,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         processWorkRequestJTable.setRowHeight(30);
         jScrollPane1.setViewportView(processWorkRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 710, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 710, 150));
 
         viewJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         viewJButton.setText("View DemandGood");
@@ -149,6 +150,9 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
         add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 82, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\doctor_submitWorkRequest.png")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 360, 510));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewJButtonActionPerformed
@@ -227,6 +231,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JComboBox<String> enterpriseJComboBox;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable processWorkRequestJTable;
     private javax.swing.JButton submitJButton;

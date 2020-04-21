@@ -53,6 +53,9 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
         submitVolunteerJButton = new javax.swing.JButton();
         volunteerEvalJButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,7 +66,7 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Back Office Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 360, 39));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 360, 39));
 
         AssignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         AssignJButton.setText("Assign Work Requests");
@@ -113,6 +116,16 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Enterprise:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\COVIDweb_07_wash.png")); // NOI18N
+        jLabel2.setToolTipText("");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\COVIDweb_09_clean.png")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\COVIDweb_10_temperature.png")); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -160,6 +173,9 @@ public class HospitalBackOfficeWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton AssignJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton submitVolunteerJButton;
     private javax.swing.JButton submitWorkEvaluationJButton;

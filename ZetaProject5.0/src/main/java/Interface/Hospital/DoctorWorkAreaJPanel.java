@@ -50,7 +50,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         submitWorkRequestJButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -60,13 +59,9 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(221, 237, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel1.setText("Doctor Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 340, 39));
-
         valueLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 270, 40));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 170, 40));
 
         submitWorkRequestJButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         submitWorkRequestJButton.setText("Submit Work Requst");
@@ -75,22 +70,19 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 submitWorkRequestJButtonActionPerformed(evt);
             }
         });
-        add(submitWorkRequestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 233, -1));
+        add(submitWorkRequestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 233, -1));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Enterprise:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel4.setText("Doctor Work Area");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 340, 39));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 340, 39));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Business/Images/Coronabeer.gif"))); // NOI18N
-        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 660, 340));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\MainFrame3.png")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitWorkRequestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitWorkRequestJButtonActionPerformed
@@ -103,7 +95,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

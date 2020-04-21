@@ -62,6 +62,7 @@ public class ViewDemandGoodJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         demandGoodJTable = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(180, 224, 201));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,7 +91,10 @@ public class ViewDemandGoodJPanel extends javax.swing.JPanel {
         demandGoodJTable.setRowHeight(30);
         jScrollPane2.setViewportView(demandGoodJTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 660, 200));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 660, 200));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\medical_equipment1.png")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 850, 680));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -108,6 +112,7 @@ public class ViewDemandGoodJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JTable demandGoodJTable;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

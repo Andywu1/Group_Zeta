@@ -87,10 +87,11 @@ public class ProcessDonorJPanel extends javax.swing.JPanel {
         donorJComboBox = new javax.swing.JComboBox<>();
         updateJButton = new javax.swing.JButton();
         deleteJButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setBackground(new java.awt.Color(255, 236, 179));
+        setBackground(new java.awt.Color(255, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -160,6 +161,11 @@ public class ProcessDonorJPanel extends javax.swing.JPanel {
             }
         });
         add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, 33));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\donate money.gif")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -314,6 +320,7 @@ public class ProcessDonorJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField moneyJTextField;
     private javax.swing.JButton submitJButton;

@@ -68,6 +68,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         usernameJtext = new javax.swing.JTextField();
         arrivalJlabel = new javax.swing.JLabel();
         passwordJtext = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         departureJlabel2 = new javax.swing.JLabel();
         departureJlabel3 = new javax.swing.JLabel();
         arrivalJlabel1 = new javax.swing.JLabel();
@@ -82,6 +83,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         updateButton = new javax.swing.JButton();
         showPasswordCheckBox = new javax.swing.JCheckBox();
         backjButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         departureJlabel1.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         departureJlabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -108,6 +110,8 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
 
         passwordJtext.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         passwordJtext.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel2.setText("jLabel2");
 
         setBackground(new java.awt.Color(180, 224, 201));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -136,9 +140,9 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         });
         add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, 30));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         jLabel1.setText("System User Registration");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, 23));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, 50));
 
         sysadminJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         sysadminJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -218,6 +222,9 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
             }
         });
         add(backjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\WeChat Image_20200420191947.png")); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, 300, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJtextActionPerformed
@@ -264,6 +271,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
         populateTable();
         showPasswordCheckBox.setSelected(false);
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
         
     }//GEN-LAST:event_createJButtonActionPerformed
 
@@ -291,6 +299,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
             populateTable();
             setTextFiledNull("");
             usernameTextField.setEnabled(true);
+            passwordField.setEchoChar('*');
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         } 
@@ -365,6 +374,7 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
             setTextFiledNull("");
             showPasswordCheckBox.setSelected(false);
             usernameTextField.setEnabled(true);
+            passwordField.setEchoChar('*');
             }
             
       
@@ -420,6 +430,8 @@ public class RegisterSysadminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel departureJlabel2;
     private javax.swing.JLabel departureJlabel3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJtext;
     private javax.swing.JTextField nameTextField;

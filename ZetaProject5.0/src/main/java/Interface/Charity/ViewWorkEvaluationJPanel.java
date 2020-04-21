@@ -71,6 +71,7 @@ public class ViewWorkEvaluationJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         workEvaluationJTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,6 +132,9 @@ public class ViewWorkEvaluationJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(workEvaluationJTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 710, 180));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\evaluation.gif")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -146,6 +150,7 @@ public class ViewWorkEvaluationJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

@@ -465,6 +465,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
         setTextFiledNull("");
         showPasswordCheckBox.setSelected(false);
         usernameTextField.setEnabled(true);
+        passwordField.setEchoChar('*');
     }//GEN-LAST:event_createButtonActionPerformed
 
      private boolean passwordPatternCorrect(){
@@ -530,6 +531,7 @@ public class CharityAdminWorkAreaJPanel extends javax.swing.JPanel {
                 usernameTextField.setText("");
                 passwordField.setText("");
                 usernameTextField.setEnabled(true);
+                passwordField.setEchoChar('*');
                 
             }
         }else{

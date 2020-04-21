@@ -149,7 +149,7 @@ public class AssignWorkRequestsJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "EnterPrise", "RequestDay", "AidWorker", "Result", "Status"
+                "Id", "EnterPrise", "RequestDate", "AidWorker", "Result", "Status"
             }
         ));
         assignJTable.setEnabled(false);

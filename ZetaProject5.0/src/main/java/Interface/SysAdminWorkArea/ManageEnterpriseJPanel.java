@@ -90,6 +90,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(136, 195, 234));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,19 +115,19 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 560, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 560, 150));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 110, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 110, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Enterprise Type");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
 
         networkComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         networkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -135,7 +136,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 networkComboBoxActionPerformed(evt);
             }
         });
-        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 170, 30));
+        add(networkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 170, 30));
 
         enterpriseTypeComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         enterpriseTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -144,10 +145,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 enterpriseTypeComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, 170, 30));
+        add(enterpriseTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 170, 30));
 
         nameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 170, 30));
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 170, 30));
 
         createJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         createJButton.setText("Create");
@@ -156,7 +157,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 createJButtonActionPerformed(evt);
             }
         });
-        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, -1, -1));
+        add(createJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, -1, -1));
 
         deleteJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         deleteJButton.setText("Delete");
@@ -165,20 +166,20 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 deleteJButtonActionPerformed(evt);
             }
         });
-        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, -1, -1));
+        add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         jLabel4.setText("Manage Enterprise");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
         updateJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        updateJButton.setText("Update Name");
+        updateJButton.setText("Update");
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateJButtonActionPerformed(evt);
             }
         });
-        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, -1, -1));
+        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(0, 94, 170));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -231,9 +232,12 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, -1));
+        jPanel3.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, 30));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 700));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\manage2.png")); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 490, 560));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -370,6 +374,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JTable enterpriseJTable;
     private javax.swing.JComboBox enterpriseTypeComboBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

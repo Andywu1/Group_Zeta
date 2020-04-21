@@ -60,7 +60,7 @@
               <Table columnCount="6" rowCount="4">
                 <Column editable="true" title="Id" type="java.lang.Object"/>
                 <Column editable="true" title="EnterPrise" type="java.lang.Object"/>
-                <Column editable="true" title="RequestDay" type="java.lang.Object"/>
+                <Column editable="true" title="RequestDate" type="java.lang.Object"/>
                 <Column editable="true" title="AidWorker" type="java.lang.Object"/>
                 <Column editable="true" title="Result" type="java.lang.Object"/>
                 <Column editable="true" title="Status" type="java.lang.Object"/>

@@ -77,6 +77,7 @@ public class AssignWorkRequestJPanel extends javax.swing.JPanel {
         assignWorkRequestJTable = new javax.swing.JTable();
         assignJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,7 +97,7 @@ public class AssignWorkRequestJPanel extends javax.swing.JPanel {
         assignWorkRequestJTable.setRowHeight(30);
         jScrollPane1.setViewportView(assignWorkRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 752, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 752, 150));
 
         assignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         assignJButton.setText("Assign to me");
@@ -105,7 +106,7 @@ public class AssignWorkRequestJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
 
         backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         backJButton.setText("<<back");
@@ -115,6 +116,9 @@ public class AssignWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\Doctor_AssignNew.png")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 960, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -154,6 +158,7 @@ public class AssignWorkRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton assignJButton;
     private javax.swing.JTable assignWorkRequestJTable;
     private javax.swing.JButton backJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

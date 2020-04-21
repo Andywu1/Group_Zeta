@@ -43,12 +43,13 @@ public class DriverProcessJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         resultTextField = new javax.swing.JTextField();
         submitJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setBackground(new java.awt.Color(209, 231, 233));
+        setBackground(new java.awt.Color(199, 245, 246));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -60,9 +61,9 @@ public class DriverProcessJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Result:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 50, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 110, -1));
 
         resultTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         resultTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +71,7 @@ public class DriverProcessJPanel extends javax.swing.JPanel {
                 resultTextFieldActionPerformed(evt);
             }
         });
-        add(resultTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 180, 30));
+        add(resultTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 180, 30));
 
         submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
@@ -79,7 +80,10 @@ public class DriverProcessJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\delivery.gif")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 800, 560));
     }// </editor-fold>//GEN-END:initComponents
 
     private void resultTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultTextFieldActionPerformed
@@ -123,6 +127,7 @@ public class DriverProcessJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField resultTextField;

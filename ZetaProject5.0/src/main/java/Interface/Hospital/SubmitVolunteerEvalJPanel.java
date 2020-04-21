@@ -70,6 +70,7 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         evaluationJTextField = new javax.swing.JTextField();
         submitJButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,11 +102,11 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
         volunteerJTable.setRowHeight(30);
         jScrollPane1.setViewportView(volunteerJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 650, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 650, 120));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Evaluation:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, 27));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, 27));
 
         evaluationJTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         evaluationJTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +114,7 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
                 evaluationJTextFieldActionPerformed(evt);
             }
         });
-        add(evaluationJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 250, 30));
+        add(evaluationJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 250, 30));
 
         submitJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         submitJButton.setText("Submit");
@@ -122,7 +123,10 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, -1, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\volunteer.png")); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 1000, 380));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -194,6 +198,7 @@ public class SubmitVolunteerEvalJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField evaluationJTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton submitJButton;
     private javax.swing.JTable volunteerJTable;

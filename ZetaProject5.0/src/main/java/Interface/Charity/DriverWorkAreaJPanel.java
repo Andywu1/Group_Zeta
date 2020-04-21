@@ -65,8 +65,9 @@ public class DriverWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(209, 231, 233));
+        setBackground(new java.awt.Color(199, 245, 246));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         driverJTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -92,7 +93,7 @@ public class DriverWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
 
         processJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processJButton.setText("Process");
@@ -101,7 +102,7 @@ public class DriverWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Driver Work Area");
@@ -114,6 +115,10 @@ public class DriverWorkAreaJPanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Enterprise:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 30));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\carrot.gif")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 800, 510));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -154,8 +159,11 @@ public class DriverWorkAreaJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "You can't submit result twice!", "INFORMATION", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        hospitalWorkRequest.setStatus("Delivery");
+        if(!hospitalWorkRequest.getStatus().equals("Driver Begin")){
+             JOptionPane.showMessageDialog(this, "You haven't assigned driver!", "INFORMATION", JOptionPane.ERROR_MESSAGE);
+            return;
+         }
+        //hospitalWorkRequest.setStatus("Delivery");
         
         DriverProcessJPanel driverProcessJPanel=new DriverProcessJPanel(userProcessContainer,hospitalWorkRequest);
         userProcessContainer.add("driverProcessJPanel",driverProcessJPanel);
@@ -170,6 +178,7 @@ public class DriverWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JTable driverJTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JLabel valueLabel;

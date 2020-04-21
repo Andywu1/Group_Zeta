@@ -79,6 +79,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         updateJButton = new javax.swing.JButton();
         deleteJButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(192, 233, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,6 +164,9 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             }
         });
         add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 430, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\medicalequipment.png")); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 570, 460));
     }// </editor-fold>//GEN-END:initComponents
 
     private void goodnameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goodnameJTextFieldActionPerformed
@@ -345,6 +349,7 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField goodnameJTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField quantityJTextField;
     private javax.swing.JButton submitJButton;

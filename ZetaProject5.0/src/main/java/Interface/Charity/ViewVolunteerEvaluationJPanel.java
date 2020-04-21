@@ -66,10 +66,14 @@ public class ViewVolunteerEvaluationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         volunteerEvalJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\evaluation.png")); // NOI18N
 
         setBackground(new java.awt.Color(194, 222, 164));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,6 +107,9 @@ public class ViewVolunteerEvaluationJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\evaluation_viewVolunteer.png")); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 420, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -118,6 +125,8 @@ public class ViewVolunteerEvaluationJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable volunteerEvalJTable;
     // End of variables declaration//GEN-END:variables

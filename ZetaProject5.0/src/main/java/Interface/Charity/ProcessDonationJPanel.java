@@ -77,6 +77,7 @@ public class ProcessDonationJPanel extends javax.swing.JPanel {
         processJButton = new javax.swing.JButton();
         sumJLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(209, 231, 233));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,7 +109,7 @@ public class ProcessDonationJPanel extends javax.swing.JPanel {
             donationJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 102, 750, 140));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 750, 140));
 
         processJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processJButton.setText("Process");
@@ -124,7 +125,10 @@ public class ProcessDonationJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Sum of Donation:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 190, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 190, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\receive money2.gif")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 440, 370));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -179,6 +183,7 @@ public class ProcessDonationJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JTable donationJTable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;

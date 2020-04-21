@@ -79,6 +79,7 @@ public class AssignVolunteerJPanel extends javax.swing.JPanel {
         submitVolunteerJTable = new javax.swing.JTable();
         processJButton = new javax.swing.JButton();
         assignJButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(194, 222, 164));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -115,7 +116,7 @@ public class AssignVolunteerJPanel extends javax.swing.JPanel {
         submitVolunteerJTable.setRowHeight(30);
         jScrollPane1.setViewportView(submitVolunteerJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 740, 180));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 740, 180));
 
         processJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         processJButton.setText("Process");
@@ -124,7 +125,7 @@ public class AssignVolunteerJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, -1));
 
         assignJButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         assignJButton.setText("Assign to me");
@@ -133,7 +134,10 @@ public class AssignVolunteerJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\volunteer_Assign.png")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, 430));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -187,7 +191,7 @@ public class AssignVolunteerJPanel extends javax.swing.JPanel {
             return;
         }
         
-        volunteerWorkRequest.setStatus("Process");
+        //volunteerWorkRequest.setStatus("Process");
         ProcessVolunteerJPanel processVolunteerJPanel=new ProcessVolunteerJPanel(userProcessContainer,volunteerWorkRequest);
         userProcessContainer.add("ProcessVolunteerJPanel",processVolunteerJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -199,6 +203,7 @@ public class AssignVolunteerJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JButton backJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JTable submitVolunteerJTable;

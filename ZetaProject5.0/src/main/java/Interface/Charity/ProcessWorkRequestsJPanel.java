@@ -91,6 +91,7 @@ public class ProcessWorkRequestsJPanel extends javax.swing.JPanel {
         submitJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         JComboBox = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(180, 224, 201));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -138,6 +139,9 @@ public class ProcessWorkRequestsJPanel extends javax.swing.JPanel {
             }
         });
         add(JComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 160, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\NEU_Study\\INFO 5100 Spring\\Final_Project_Zeta\\Zeta_Images\\doctor.png")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
@@ -201,6 +205,7 @@ public class ProcessWorkRequestsJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> JComboBox;
     private javax.swing.JButton backJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable processJTable;
     private javax.swing.JButton submitJButton;
