@@ -270,8 +270,8 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             return;
         }
        
-        if(c>=10000||s>=10000){
-            JOptionPane.showMessageDialog(null, "Volunteer number can't exceed 10000!", "CREATE", JOptionPane.ERROR_MESSAGE);
+        if(c>100||s>100){
+            JOptionPane.showMessageDialog(null, "Volunteer number can't exceed 100!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -379,8 +379,8 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(c>=10000||s>=10000){
-            JOptionPane.showMessageDialog(null, "Volunteer number can't exceed 10000!", "CREATE", JOptionPane.ERROR_MESSAGE);
+        if(c>100||s>100){
+            JOptionPane.showMessageDialog(null, "Volunteer number can't exceed 100!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
