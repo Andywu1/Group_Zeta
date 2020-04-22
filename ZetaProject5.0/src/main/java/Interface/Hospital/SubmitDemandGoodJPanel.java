@@ -207,6 +207,12 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             return;
         }
         
+        if(Integer.parseInt(quantity)>=10000){
+            JOptionPane.showMessageDialog(null, "Demand good quantity can't exceed 10000!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            quantityJTextField.setText("");
+            return;
+        }
+        
         for(Map.Entry<String, DemandGood> entry : workrequest.getDemandGoodDirectory().getDemandGoodMap().entrySet()){
             if(name==null?entry.getValue().getName()==null:name.equalsIgnoreCase(entry.getValue().getName())){
                 JOptionPane.showMessageDialog(null,"The good already exists!");
@@ -285,6 +291,13 @@ public class SubmitDemandGoodJPanel extends javax.swing.JPanel {
             return;
         }
 
+        if(Integer.parseInt(quantity)>=10000){
+            JOptionPane.showMessageDialog(null, "Demand good quantity can't exceed 10000!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            quantityJTextField.setText("");
+            goodnameJTextField.setEnabled(true);
+            return;
+        }
+         
         String gn = (String) submitJTable.getValueAt(selectedRow, 1);
         
         workrequest.getDemandGoodDirectory().getDemandGoodMap().get(gn).setName(gn);

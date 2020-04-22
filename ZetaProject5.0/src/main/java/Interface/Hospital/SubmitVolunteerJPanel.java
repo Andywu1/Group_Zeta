@@ -169,13 +169,15 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         cleanerJTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(cleanerJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 180, 30));
 
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
         jLabel1.setText("Cleaner");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 91, -1));
 
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(204, 255, 255));
         jLabel2.setText("Server");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 91, 26));
 
@@ -205,13 +207,15 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         });
         add(deleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, -1, -1));
 
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(204, 255, 255));
         jLabel3.setText("Charity Name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, -1));
 
+        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(204, 255, 255));
         jLabel4.setText("Expected Date");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, -1, -1));
         add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 180, 30));
@@ -263,6 +267,11 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         
         if(c<0 || s<0){
             JOptionPane.showMessageDialog(null, "Please don't input the Cleaner Number or Server Number less than 0!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+       
+        if(c>=10000||s>=10000){
+            JOptionPane.showMessageDialog(null, "Volunteer number can't exceed 10000!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -367,6 +376,11 @@ public class SubmitVolunteerJPanel extends javax.swing.JPanel {
         
         if(c<0 || s<0){
             JOptionPane.showMessageDialog(null, "Please don't input the Cleaner Number or Server Number less than 0!", "CREATE", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(c>=10000||s>=10000){
+            JOptionPane.showMessageDialog(null, "Volunteer number can't exceed 10000!", "CREATE", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
